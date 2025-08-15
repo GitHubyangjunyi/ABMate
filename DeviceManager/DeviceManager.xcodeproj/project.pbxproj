@@ -1,0 +1,818 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		443EAF372797E1C3007B7970 /* libUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 443EAF362797E1C3007B7970 /* libUtils.a */; };
+		445D561627F4047000611B63 /* RequestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445D561527F4047000611B63 /* RequestData.swift */; };
+		446991A4278C086A00887B4E /* DeviceManager.docc in Sources */ = {isa = PBXBuildFile; fileRef = 446991A3278C086A00887B4E /* DeviceManager.docc */; };
+		446991D1278C1A5600887B4E /* DeviceCommManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446991D0278C1A5600887B4E /* DeviceCommManager.swift */; };
+		446991D4278C21E000887B4E /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446991D3278C21E000887B4E /* Request.swift */; };
+		446991D6278C228200887B4E /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446991D5278C228200887B4E /* Command.swift */; };
+		446991D8278C2C8C00887B4E /* CommandProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446991D7278C2C8C00887B4E /* CommandProtocol.swift */; };
+		446991DA278C2ED500887B4E /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446991D9278C2ED500887B4E /* Response.swift */; };
+		446991DD278C382400887B4E /* AncModeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446991DC278C382400887B4E /* AncModeRequest.swift */; };
+		446991E0278C3A4400887B4E /* ResponseCallable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446991DF278C3A4400887B4E /* ResponseCallable.swift */; };
+		446991E2278C4E8F00887B4E /* AbstractResponseCallable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446991E1278C4E8F00887B4E /* AbstractResponseCallable.swift */; };
+		446991E4278C53F600887B4E /* TlvResponseCallable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446991E3278C53F600887B4E /* TlvResponseCallable.swift */; };
+		4473225027D0A93A004C6103 /* NotificationPowerCallable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473224F27D0A93A004C6103 /* NotificationPowerCallable.swift */; };
+		4473225227D0A9B5004C6103 /* NotificationDataCallable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473225127D0A9B5004C6103 /* NotificationDataCallable.swift */; };
+		4473225427D0AA0A004C6103 /* NotificationKeyCallable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473225327D0AA0A004C6103 /* NotificationKeyCallable.swift */; };
+		4473225627D0AA8C004C6103 /* NotificationByteCallable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473225527D0AA8C004C6103 /* NotificationByteCallable.swift */; };
+		4473225827D0AAC7004C6103 /* NotificationBooleanCallable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473225727D0AAC7004C6103 /* NotificationBooleanCallable.swift */; };
+		4473225A27D0E252004C6103 /* AncGainRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473225927D0E252004C6103 /* AncGainRequest.swift */; };
+		4473225C27D0E327004C6103 /* TransparencyGainRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473225B27D0E327004C6103 /* TransparencyGainRequest.swift */; };
+		4473225E27D1AA02004C6103 /* DeviceInfoUInt8ToIntCallable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473225D27D1AA02004C6103 /* DeviceInfoUInt8ToIntCallable.swift */; };
+		4473226027D1AB03004C6103 /* NotificationUInt8ToIntCallable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473225F27D1AB03004C6103 /* NotificationUInt8ToIntCallable.swift */; };
+		4473226227D204A4004C6103 /* DeviceInfoRemoteEqSettingsCallable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473226127D204A4004C6103 /* DeviceInfoRemoteEqSettingsCallable.swift */; };
+		4473226427D20EFC004C6103 /* RemoteEqSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473226327D20EFC004C6103 /* RemoteEqSetting.swift */; };
+		4473226627D231E5004C6103 /* DeviceInfoRemoteEqSettingCallable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473226527D231E5004C6103 /* DeviceInfoRemoteEqSettingCallable.swift */; };
+		4473226827D23C60004C6103 /* PayloadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473226727D23C60004C6103 /* PayloadHandler.swift */; };
+		4473226E27D48F42004C6103 /* NotificationRemoteEqSettingCallable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473226D27D48F42004C6103 /* NotificationRemoteEqSettingCallable.swift */; };
+		4473227227D5AD23004C6103 /* AbstractPayloadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473227127D5AD23004C6103 /* AbstractPayloadHandler.swift */; };
+		4473227427D5AD70004C6103 /* PowerPayloadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473227327D5AD70004C6103 /* PowerPayloadHandler.swift */; };
+		4473227627D5AE86004C6103 /* RemoteEqSettingPayloadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473227527D5AE86004C6103 /* RemoteEqSettingPayloadHandler.swift */; };
+		4473227827D5AEC4004C6103 /* RemoteEqSettingsPayloadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473227727D5AEC4004C6103 /* RemoteEqSettingsPayloadHandler.swift */; };
+		4473227A27D5AF01004C6103 /* KeyPayloadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473227927D5AF01004C6103 /* KeyPayloadHandler.swift */; };
+		4473227C27D5AF3D004C6103 /* UInt8PayloadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473227B27D5AF3D004C6103 /* UInt8PayloadHandler.swift */; };
+		4473227E27D5AF81004C6103 /* BoolPayloadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473227D27D5AF81004C6103 /* BoolPayloadHandler.swift */; };
+		4473228027D5B0C8004C6103 /* UInt8ToIntPayloadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473227F27D5B0C8004C6103 /* UInt8ToIntPayloadHandler.swift */; };
+		4473228227D5B10E004C6103 /* UInt32PayloadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473228127D5B10E004C6103 /* UInt32PayloadHandler.swift */; };
+		4473228427D5B148004C6103 /* StringPayloadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473228327D5B148004C6103 /* StringPayloadHandler.swift */; };
+		4473228627D5B195004C6103 /* FirmwareChecksumPayloadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473228527D5B195004C6103 /* FirmwareChecksumPayloadHandler.swift */; };
+		4473228827D5B2D1004C6103 /* MtuPayloadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473228727D5B2D1004C6103 /* MtuPayloadHandler.swift */; };
+		4473228A27D5D709004C6103 /* TlvResponsePayloadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473228927D5D709004C6103 /* TlvResponsePayloadHandler.swift */; };
+		4473228C27D5DC72004C6103 /* ResponsePayloadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473228B27D5DC72004C6103 /* ResponsePayloadHandler.swift */; };
+		44A66B702840C9FD008638EE /* DeviceBeaconV1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A66B6F2840C9FC008638EE /* DeviceBeaconV1.swift */; };
+		44A66B722840CA05008638EE /* DeviceBeaconV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A66B712840CA05008638EE /* DeviceBeaconV2.swift */; };
+		44A66B742840CAAC008638EE /* EarbudsBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A66B732840CAAC008638EE /* EarbudsBeacon.swift */; };
+		44A66B7A2841F57A008638EE /* ABDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A66B792841F57A008638EE /* ABDevice.swift */; };
+		44A66C1228659042008638EE /* DeviceCapacitiesPayloadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A66C1128659041008638EE /* DeviceCapacitiesPayloadHandler.swift */; };
+		44A66C14286599CF008638EE /* SoundEffect3dRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A66C13286599CF008638EE /* SoundEffect3dRequest.swift */; };
+		44CD5D0727997D3C00DA2B01 /* DeviceBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CD5D0627997D3C00DA2B01 /* DeviceBeacon.swift */; };
+		44EECF8C27B60EE6009539B8 /* DeviceInfoOtaChecksumCallable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EECF8B27B60EE6009539B8 /* DeviceInfoOtaChecksumCallable.swift */; };
+		44EECFFD27BE2A13009539B8 /* DequeModule.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44EECFFB27BE2A0C009539B8 /* DequeModule.xcframework */; };
+		44F598532A2DCAC500B9BBA0 /* DeviceCapacities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F598522A2DCAC500B9BBA0 /* DeviceCapacities.swift */; };
+		44F598572A344FAB00B9BBA0 /* TlvRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F598562A344FAB00B9BBA0 /* TlvRequest.swift */; };
+		44F598592A36B19000B9BBA0 /* MultipointRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F598582A36B19000B9BBA0 /* MultipointRequest.swift */; };
+		44F5985B2A36CD2200B9BBA0 /* AncRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F5985A2A36CD2200B9BBA0 /* AncRequest.swift */; };
+		44F5985D2A36EF4A00B9BBA0 /* BassEngineRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F5985C2A36EF4A00B9BBA0 /* BassEngineRequest.swift */; };
+		44F5985F2A36F0A100B9BBA0 /* VoiceRecognitionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F5985E2A36F0A100B9BBA0 /* VoiceRecognitionRequest.swift */; };
+		44F598612A36F19D00B9BBA0 /* TlvPayloadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F598602A36F19D00B9BBA0 /* TlvPayloadHandler.swift */; };
+		44F598632A36FED700B9BBA0 /* SinglePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F598622A36FED700B9BBA0 /* SinglePoint.swift */; };
+		44F598652A37002800B9BBA0 /* Multipoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F598642A37002800B9BBA0 /* Multipoint.swift */; };
+		44F598672A37009F00B9BBA0 /* BassEngineRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F598662A37009F00B9BBA0 /* BassEngineRange.swift */; };
+		44F598692A370FE700B9BBA0 /* MultipointPayloadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F598682A370FE700B9BBA0 /* MultipointPayloadHandler.swift */; };
+		44F598732A39C13100B9BBA0 /* Int8PayloadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F598722A39C13100B9BBA0 /* Int8PayloadHandler.swift */; };
+		44F9C3A9278D735B004347D4 /* BoolResponseCallable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9C3A8278D735B004347D4 /* BoolResponseCallable.swift */; };
+		44F9C3AC278D780B004347D4 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9C3AB278D780B004347D4 /* Notification.swift */; };
+		44F9C3AE278D9FAF004347D4 /* DeviceManagerApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9C3AD278D9FAF004347D4 /* DeviceManagerApi.swift */; };
+		44F9C3B3278EC39A004347D4 /* AutoAnswerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9C3B2278EC39A004347D4 /* AutoAnswerRequest.swift */; };
+		44F9C3B5278EC716004347D4 /* AutoShutdownRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9C3B4278EC716004347D4 /* AutoShutdownRequest.swift */; };
+		44F9C3B7278EC873004347D4 /* BluetoothNameRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9C3B6278EC873004347D4 /* BluetoothNameRequest.swift */; };
+		44F9C3B9278ECBD3004347D4 /* ClearPairRecordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9C3B8278ECBD3004347D4 /* ClearPairRecordRequest.swift */; };
+		44F9C3BB278ECC1C004347D4 /* DeviceInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9C3BA278ECC1C004347D4 /* DeviceInfoRequest.swift */; };
+		44F9C3BD278ED307004347D4 /* EqRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9C3BC278ED307004347D4 /* EqRequest.swift */; };
+		44F9C3BF278FCD1C004347D4 /* FactoryResetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9C3BE278FCD1C004347D4 /* FactoryResetRequest.swift */; };
+		44F9C3C1278FCD7E004347D4 /* FindDeviceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9C3C0278FCD7E004347D4 /* FindDeviceRequest.swift */; };
+		44F9C3C3278FCDAF004347D4 /* InEarDetectRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9C3C2278FCDAF004347D4 /* InEarDetectRequest.swift */; };
+		44F9C3C5278FCDCF004347D4 /* KeyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9C3C4278FCDCF004347D4 /* KeyRequest.swift */; };
+		44F9C3C7278FD30C004347D4 /* LanguageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9C3C6278FD30C004347D4 /* LanguageRequest.swift */; };
+		44F9C3C9278FD381004347D4 /* LedSwitchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9C3C8278FD381004347D4 /* LedSwitchRequest.swift */; };
+		44F9C3CB278FD3C3004347D4 /* MusicControlRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9C3CA278FD3C3004347D4 /* MusicControlRequest.swift */; };
+		44F9C3CD278FD6F1004347D4 /* WorkModeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9C3CC278FD6F1004347D4 /* WorkModeRequest.swift */; };
+		44F9C3CF279000F4004347D4 /* DeviceInfoCallable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9C3CE279000F4004347D4 /* DeviceInfoCallable.swift */; };
+		44F9C3D127900293004347D4 /* AbstractDeviceInfoCallable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9C3D027900293004347D4 /* AbstractDeviceInfoCallable.swift */; };
+		44F9C3D3279009E0004347D4 /* DeviceInfoBooleanCallable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9C3D2279009E0004347D4 /* DeviceInfoBooleanCallable.swift */; };
+		44F9C3D527900BED004347D4 /* DeviceInfoDataCallable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9C3D427900BEC004347D4 /* DeviceInfoDataCallable.swift */; };
+		44F9C3D727900C2F004347D4 /* DeviceInfoByteCallable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9C3D627900C2F004347D4 /* DeviceInfoByteCallable.swift */; };
+		44F9C3D927900CBE004347D4 /* DeviceInfoUInt32Callable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9C3D827900CBE004347D4 /* DeviceInfoUInt32Callable.swift */; };
+		44F9C3DB27900D6B004347D4 /* DeviceInfoKeyCallable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9C3DA27900D6B004347D4 /* DeviceInfoKeyCallable.swift */; };
+		44F9C3DD27900F5D004347D4 /* DeviceInfoMtuCallable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9C3DC27900F5D004347D4 /* DeviceInfoMtuCallable.swift */; };
+		44F9C3DF27901007004347D4 /* DeviceInfoPowerCallable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9C3DE27901007004347D4 /* DeviceInfoPowerCallable.swift */; };
+		44F9C3E12790101C004347D4 /* DevicePower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9C3E02790101C004347D4 /* DevicePower.swift */; };
+		44F9C3E327901028004347D4 /* DeviceInfoUInt16Callable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9C3E227901028004347D4 /* DeviceInfoUInt16Callable.swift */; };
+		44F9C3E52790108D004347D4 /* DeviceInfoStringCallable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9C3E42790108D004347D4 /* DeviceInfoStringCallable.swift */; };
+		44F9C3E727901114004347D4 /* DeviceComponentPower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9C3E627901114004347D4 /* DeviceComponentPower.swift */; };
+		44F9C3EA27902AED004347D4 /* NotificationCallable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9C3E927902AED004347D4 /* NotificationCallable.swift */; };
+		44F9C3EC27902B33004347D4 /* AbstractNotificationCallable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9C3EB27902B33004347D4 /* AbstractNotificationCallable.swift */; };
+		44F9C3EE27955F76004347D4 /* RequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9C3ED27955F76004347D4 /* RequestHandler.swift */; };
+		44F9C3F027955FE7004347D4 /* RequestSplitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9C3EF27955FE7004347D4 /* RequestSplitter.swift */; };
+		44F9C4D527966904004347D4 /* ResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9C4D427966903004347D4 /* ResponseHandler.swift */; };
+		44F9C4D72796691D004347D4 /* ResponseMerger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F9C4D62796691D004347D4 /* ResponseMerger.swift */; };
+		44FA995029F9206600E30606 /* BoolRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA994F29F9206600E30606 /* BoolRequest.swift */; };
+		44FA995629FA507400E30606 /* SpatialAudioModePayloadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA995529FA507400E30606 /* SpatialAudioModePayloadHandler.swift */; };
+		44FA995829FA557700E30606 /* BassEngineRangePayloadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA995729FA557700E30606 /* BassEngineRangePayloadHandler.swift */; };
+		44FA995A29FA568100E30606 /* SpatialAudioModeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA995929FA568100E30606 /* SpatialAudioModeRequest.swift */; };
+		44FA995E29FA589500E30606 /* AntiWindNoiseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA995D29FA589500E30606 /* AntiWindNoiseRequest.swift */; };
+		44FA996429FA5A4900E30606 /* SpatialAudioMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA996329FA5A4900E30606 /* SpatialAudioMode.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		443EAF362797E1C3007B7970 /* libUtils.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libUtils.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		445D561527F4047000611B63 /* RequestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestData.swift; sourceTree = "<group>"; };
+		4469919F278C086A00887B4E /* DeviceManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DeviceManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		446991A3278C086A00887B4E /* DeviceManager.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = DeviceManager.docc; sourceTree = "<group>"; };
+		446991D0278C1A5600887B4E /* DeviceCommManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCommManager.swift; sourceTree = "<group>"; };
+		446991D3278C21E000887B4E /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		446991D5278C228200887B4E /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+		446991D7278C2C8C00887B4E /* CommandProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandProtocol.swift; sourceTree = "<group>"; };
+		446991D9278C2ED500887B4E /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		446991DC278C382400887B4E /* AncModeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AncModeRequest.swift; sourceTree = "<group>"; };
+		446991DF278C3A4400887B4E /* ResponseCallable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseCallable.swift; sourceTree = "<group>"; };
+		446991E1278C4E8F00887B4E /* AbstractResponseCallable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractResponseCallable.swift; sourceTree = "<group>"; };
+		446991E3278C53F600887B4E /* TlvResponseCallable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TlvResponseCallable.swift; sourceTree = "<group>"; };
+		4473224F27D0A93A004C6103 /* NotificationPowerCallable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPowerCallable.swift; sourceTree = "<group>"; };
+		4473225127D0A9B5004C6103 /* NotificationDataCallable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDataCallable.swift; sourceTree = "<group>"; };
+		4473225327D0AA0A004C6103 /* NotificationKeyCallable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationKeyCallable.swift; sourceTree = "<group>"; };
+		4473225527D0AA8C004C6103 /* NotificationByteCallable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationByteCallable.swift; sourceTree = "<group>"; };
+		4473225727D0AAC7004C6103 /* NotificationBooleanCallable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBooleanCallable.swift; sourceTree = "<group>"; };
+		4473225927D0E252004C6103 /* AncGainRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AncGainRequest.swift; sourceTree = "<group>"; };
+		4473225B27D0E327004C6103 /* TransparencyGainRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparencyGainRequest.swift; sourceTree = "<group>"; };
+		4473225D27D1AA02004C6103 /* DeviceInfoUInt8ToIntCallable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoUInt8ToIntCallable.swift; sourceTree = "<group>"; };
+		4473225F27D1AB03004C6103 /* NotificationUInt8ToIntCallable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationUInt8ToIntCallable.swift; sourceTree = "<group>"; };
+		4473226127D204A4004C6103 /* DeviceInfoRemoteEqSettingsCallable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoRemoteEqSettingsCallable.swift; sourceTree = "<group>"; };
+		4473226327D20EFC004C6103 /* RemoteEqSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteEqSetting.swift; sourceTree = "<group>"; };
+		4473226527D231E5004C6103 /* DeviceInfoRemoteEqSettingCallable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoRemoteEqSettingCallable.swift; sourceTree = "<group>"; };
+		4473226727D23C60004C6103 /* PayloadHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayloadHandler.swift; sourceTree = "<group>"; };
+		4473226D27D48F42004C6103 /* NotificationRemoteEqSettingCallable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationRemoteEqSettingCallable.swift; sourceTree = "<group>"; };
+		4473227127D5AD23004C6103 /* AbstractPayloadHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractPayloadHandler.swift; sourceTree = "<group>"; };
+		4473227327D5AD70004C6103 /* PowerPayloadHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerPayloadHandler.swift; sourceTree = "<group>"; };
+		4473227527D5AE86004C6103 /* RemoteEqSettingPayloadHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteEqSettingPayloadHandler.swift; sourceTree = "<group>"; };
+		4473227727D5AEC4004C6103 /* RemoteEqSettingsPayloadHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteEqSettingsPayloadHandler.swift; sourceTree = "<group>"; };
+		4473227927D5AF01004C6103 /* KeyPayloadHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyPayloadHandler.swift; sourceTree = "<group>"; };
+		4473227B27D5AF3D004C6103 /* UInt8PayloadHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UInt8PayloadHandler.swift; sourceTree = "<group>"; };
+		4473227D27D5AF81004C6103 /* BoolPayloadHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolPayloadHandler.swift; sourceTree = "<group>"; };
+		4473227F27D5B0C8004C6103 /* UInt8ToIntPayloadHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UInt8ToIntPayloadHandler.swift; sourceTree = "<group>"; };
+		4473228127D5B10E004C6103 /* UInt32PayloadHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UInt32PayloadHandler.swift; sourceTree = "<group>"; };
+		4473228327D5B148004C6103 /* StringPayloadHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringPayloadHandler.swift; sourceTree = "<group>"; };
+		4473228527D5B195004C6103 /* FirmwareChecksumPayloadHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirmwareChecksumPayloadHandler.swift; sourceTree = "<group>"; };
+		4473228727D5B2D1004C6103 /* MtuPayloadHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MtuPayloadHandler.swift; sourceTree = "<group>"; };
+		4473228927D5D709004C6103 /* TlvResponsePayloadHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TlvResponsePayloadHandler.swift; sourceTree = "<group>"; };
+		4473228B27D5DC72004C6103 /* ResponsePayloadHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponsePayloadHandler.swift; sourceTree = "<group>"; };
+		44A66B6F2840C9FC008638EE /* DeviceBeaconV1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceBeaconV1.swift; sourceTree = "<group>"; };
+		44A66B712840CA05008638EE /* DeviceBeaconV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceBeaconV2.swift; sourceTree = "<group>"; };
+		44A66B732840CAAC008638EE /* EarbudsBeacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarbudsBeacon.swift; sourceTree = "<group>"; };
+		44A66B792841F57A008638EE /* ABDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABDevice.swift; sourceTree = "<group>"; };
+		44A66C1128659041008638EE /* DeviceCapacitiesPayloadHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCapacitiesPayloadHandler.swift; sourceTree = "<group>"; };
+		44A66C13286599CF008638EE /* SoundEffect3dRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEffect3dRequest.swift; sourceTree = "<group>"; };
+		44CD5D0627997D3C00DA2B01 /* DeviceBeacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceBeacon.swift; sourceTree = "<group>"; };
+		44EECF8B27B60EE6009539B8 /* DeviceInfoOtaChecksumCallable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoOtaChecksumCallable.swift; sourceTree = "<group>"; };
+		44EECFFB27BE2A0C009539B8 /* DequeModule.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = DequeModule.xcframework; path = ../Frameworks/DequeModule.xcframework; sourceTree = "<group>"; };
+		44F598522A2DCAC500B9BBA0 /* DeviceCapacities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCapacities.swift; sourceTree = "<group>"; };
+		44F598562A344FAB00B9BBA0 /* TlvRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TlvRequest.swift; sourceTree = "<group>"; };
+		44F598582A36B19000B9BBA0 /* MultipointRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipointRequest.swift; sourceTree = "<group>"; };
+		44F5985A2A36CD2200B9BBA0 /* AncRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AncRequest.swift; sourceTree = "<group>"; };
+		44F5985C2A36EF4A00B9BBA0 /* BassEngineRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BassEngineRequest.swift; sourceTree = "<group>"; };
+		44F5985E2A36F0A100B9BBA0 /* VoiceRecognitionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceRecognitionRequest.swift; sourceTree = "<group>"; };
+		44F598602A36F19D00B9BBA0 /* TlvPayloadHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TlvPayloadHandler.swift; sourceTree = "<group>"; };
+		44F598622A36FED700B9BBA0 /* SinglePoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePoint.swift; sourceTree = "<group>"; };
+		44F598642A37002800B9BBA0 /* Multipoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multipoint.swift; sourceTree = "<group>"; };
+		44F598662A37009F00B9BBA0 /* BassEngineRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BassEngineRange.swift; sourceTree = "<group>"; };
+		44F598682A370FE700B9BBA0 /* MultipointPayloadHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipointPayloadHandler.swift; sourceTree = "<group>"; };
+		44F598722A39C13100B9BBA0 /* Int8PayloadHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int8PayloadHandler.swift; sourceTree = "<group>"; };
+		44F9C3A8278D735B004347D4 /* BoolResponseCallable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolResponseCallable.swift; sourceTree = "<group>"; };
+		44F9C3AB278D780B004347D4 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		44F9C3AD278D9FAF004347D4 /* DeviceManagerApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceManagerApi.swift; sourceTree = "<group>"; };
+		44F9C3B2278EC39A004347D4 /* AutoAnswerRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoAnswerRequest.swift; sourceTree = "<group>"; };
+		44F9C3B4278EC716004347D4 /* AutoShutdownRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoShutdownRequest.swift; sourceTree = "<group>"; };
+		44F9C3B6278EC873004347D4 /* BluetoothNameRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothNameRequest.swift; sourceTree = "<group>"; };
+		44F9C3B8278ECBD3004347D4 /* ClearPairRecordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearPairRecordRequest.swift; sourceTree = "<group>"; };
+		44F9C3BA278ECC1C004347D4 /* DeviceInfoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoRequest.swift; sourceTree = "<group>"; };
+		44F9C3BC278ED307004347D4 /* EqRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EqRequest.swift; sourceTree = "<group>"; };
+		44F9C3BE278FCD1C004347D4 /* FactoryResetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryResetRequest.swift; sourceTree = "<group>"; };
+		44F9C3C0278FCD7E004347D4 /* FindDeviceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindDeviceRequest.swift; sourceTree = "<group>"; };
+		44F9C3C2278FCDAF004347D4 /* InEarDetectRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InEarDetectRequest.swift; sourceTree = "<group>"; };
+		44F9C3C4278FCDCF004347D4 /* KeyRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyRequest.swift; sourceTree = "<group>"; };
+		44F9C3C6278FD30C004347D4 /* LanguageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageRequest.swift; sourceTree = "<group>"; };
+		44F9C3C8278FD381004347D4 /* LedSwitchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedSwitchRequest.swift; sourceTree = "<group>"; };
+		44F9C3CA278FD3C3004347D4 /* MusicControlRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicControlRequest.swift; sourceTree = "<group>"; };
+		44F9C3CC278FD6F1004347D4 /* WorkModeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkModeRequest.swift; sourceTree = "<group>"; };
+		44F9C3CE279000F4004347D4 /* DeviceInfoCallable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoCallable.swift; sourceTree = "<group>"; };
+		44F9C3D027900293004347D4 /* AbstractDeviceInfoCallable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractDeviceInfoCallable.swift; sourceTree = "<group>"; };
+		44F9C3D2279009E0004347D4 /* DeviceInfoBooleanCallable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoBooleanCallable.swift; sourceTree = "<group>"; };
+		44F9C3D427900BEC004347D4 /* DeviceInfoDataCallable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoDataCallable.swift; sourceTree = "<group>"; };
+		44F9C3D627900C2F004347D4 /* DeviceInfoByteCallable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoByteCallable.swift; sourceTree = "<group>"; };
+		44F9C3D827900CBE004347D4 /* DeviceInfoUInt32Callable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoUInt32Callable.swift; sourceTree = "<group>"; };
+		44F9C3DA27900D6B004347D4 /* DeviceInfoKeyCallable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoKeyCallable.swift; sourceTree = "<group>"; };
+		44F9C3DC27900F5D004347D4 /* DeviceInfoMtuCallable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoMtuCallable.swift; sourceTree = "<group>"; };
+		44F9C3DE27901007004347D4 /* DeviceInfoPowerCallable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoPowerCallable.swift; sourceTree = "<group>"; };
+		44F9C3E02790101C004347D4 /* DevicePower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicePower.swift; sourceTree = "<group>"; };
+		44F9C3E227901028004347D4 /* DeviceInfoUInt16Callable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoUInt16Callable.swift; sourceTree = "<group>"; };
+		44F9C3E42790108D004347D4 /* DeviceInfoStringCallable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoStringCallable.swift; sourceTree = "<group>"; };
+		44F9C3E627901114004347D4 /* DeviceComponentPower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceComponentPower.swift; sourceTree = "<group>"; };
+		44F9C3E927902AED004347D4 /* NotificationCallable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCallable.swift; sourceTree = "<group>"; };
+		44F9C3EB27902B33004347D4 /* AbstractNotificationCallable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractNotificationCallable.swift; sourceTree = "<group>"; };
+		44F9C3ED27955F76004347D4 /* RequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHandler.swift; sourceTree = "<group>"; };
+		44F9C3EF27955FE7004347D4 /* RequestSplitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSplitter.swift; sourceTree = "<group>"; };
+		44F9C4D427966903004347D4 /* ResponseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseHandler.swift; sourceTree = "<group>"; };
+		44F9C4D62796691D004347D4 /* ResponseMerger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseMerger.swift; sourceTree = "<group>"; };
+		44FA994F29F9206600E30606 /* BoolRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolRequest.swift; sourceTree = "<group>"; };
+		44FA995529FA507400E30606 /* SpatialAudioModePayloadHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpatialAudioModePayloadHandler.swift; sourceTree = "<group>"; };
+		44FA995729FA557700E30606 /* BassEngineRangePayloadHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BassEngineRangePayloadHandler.swift; sourceTree = "<group>"; };
+		44FA995929FA568100E30606 /* SpatialAudioModeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpatialAudioModeRequest.swift; sourceTree = "<group>"; };
+		44FA995D29FA589500E30606 /* AntiWindNoiseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntiWindNoiseRequest.swift; sourceTree = "<group>"; };
+		44FA996329FA5A4900E30606 /* SpatialAudioMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpatialAudioMode.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4469919C278C086A00887B4E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44EECFFD27BE2A13009539B8 /* DequeModule.xcframework in Frameworks */,
+				443EAF372797E1C3007B7970 /* libUtils.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		44699195278C086A00887B4E = {
+			isa = PBXGroup;
+			children = (
+				446991A1278C086A00887B4E /* DeviceManager */,
+				446991A0278C086A00887B4E /* Products */,
+				44F9C49627956D99004347D4 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		446991A0278C086A00887B4E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4469919F278C086A00887B4E /* DeviceManager.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		446991A1278C086A00887B4E /* DeviceManager */ = {
+			isa = PBXGroup;
+			children = (
+				446991A3278C086A00887B4E /* DeviceManager.docc */,
+				44CD5D0527997D2400DA2B01 /* Models */,
+				446991D2278C219200887B4E /* Command */,
+				446991D0278C1A5600887B4E /* DeviceCommManager.swift */,
+				44F9C3AD278D9FAF004347D4 /* DeviceManagerApi.swift */,
+			);
+			path = DeviceManager;
+			sourceTree = "<group>";
+		};
+		446991D2278C219200887B4E /* Command */ = {
+			isa = PBXGroup;
+			children = (
+				4473227027D5A847004C6103 /* PayloadHandler */,
+				44F9C3AA278D77C9004347D4 /* DeviceInfo */,
+				44F9C3E827902AD0004347D4 /* Notification */,
+				446991DB278C380F00887B4E /* Request */,
+				446991DE278C3A3100887B4E /* Response */,
+				446991D7278C2C8C00887B4E /* CommandProtocol.swift */,
+				446991D5278C228200887B4E /* Command.swift */,
+				446991D3278C21E000887B4E /* Request.swift */,
+				446991D9278C2ED500887B4E /* Response.swift */,
+				44F9C3AB278D780B004347D4 /* Notification.swift */,
+				445D561527F4047000611B63 /* RequestData.swift */,
+				44F9C3ED27955F76004347D4 /* RequestHandler.swift */,
+				44F9C3EF27955FE7004347D4 /* RequestSplitter.swift */,
+				44F9C4D427966903004347D4 /* ResponseHandler.swift */,
+				44F9C4D62796691D004347D4 /* ResponseMerger.swift */,
+			);
+			path = Command;
+			sourceTree = "<group>";
+		};
+		446991DB278C380F00887B4E /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				44FA994F29F9206600E30606 /* BoolRequest.swift */,
+				446991DC278C382400887B4E /* AncModeRequest.swift */,
+				44F9C3B2278EC39A004347D4 /* AutoAnswerRequest.swift */,
+				44F9C3B4278EC716004347D4 /* AutoShutdownRequest.swift */,
+				44F9C3B6278EC873004347D4 /* BluetoothNameRequest.swift */,
+				44F9C3B8278ECBD3004347D4 /* ClearPairRecordRequest.swift */,
+				44F9C3BA278ECC1C004347D4 /* DeviceInfoRequest.swift */,
+				44F9C3BC278ED307004347D4 /* EqRequest.swift */,
+				44F9C3BE278FCD1C004347D4 /* FactoryResetRequest.swift */,
+				44F9C3C0278FCD7E004347D4 /* FindDeviceRequest.swift */,
+				44F9C3C2278FCDAF004347D4 /* InEarDetectRequest.swift */,
+				44F9C3C4278FCDCF004347D4 /* KeyRequest.swift */,
+				44F9C3C6278FD30C004347D4 /* LanguageRequest.swift */,
+				44F9C3C8278FD381004347D4 /* LedSwitchRequest.swift */,
+				44F9C3CA278FD3C3004347D4 /* MusicControlRequest.swift */,
+				44F9C3CC278FD6F1004347D4 /* WorkModeRequest.swift */,
+				4473225927D0E252004C6103 /* AncGainRequest.swift */,
+				4473225B27D0E327004C6103 /* TransparencyGainRequest.swift */,
+				44A66C13286599CF008638EE /* SoundEffect3dRequest.swift */,
+				44FA995929FA568100E30606 /* SpatialAudioModeRequest.swift */,
+				44FA995D29FA589500E30606 /* AntiWindNoiseRequest.swift */,
+				44F5985E2A36F0A100B9BBA0 /* VoiceRecognitionRequest.swift */,
+				44F598562A344FAB00B9BBA0 /* TlvRequest.swift */,
+				44F5985A2A36CD2200B9BBA0 /* AncRequest.swift */,
+				44F5985C2A36EF4A00B9BBA0 /* BassEngineRequest.swift */,
+				44F598582A36B19000B9BBA0 /* MultipointRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		446991DE278C3A3100887B4E /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				446991DF278C3A4400887B4E /* ResponseCallable.swift */,
+				446991E1278C4E8F00887B4E /* AbstractResponseCallable.swift */,
+				44F9C3A8278D735B004347D4 /* BoolResponseCallable.swift */,
+				446991E3278C53F600887B4E /* TlvResponseCallable.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		4473227027D5A847004C6103 /* PayloadHandler */ = {
+			isa = PBXGroup;
+			children = (
+				4473226727D23C60004C6103 /* PayloadHandler.swift */,
+				4473227127D5AD23004C6103 /* AbstractPayloadHandler.swift */,
+				4473227327D5AD70004C6103 /* PowerPayloadHandler.swift */,
+				4473227527D5AE86004C6103 /* RemoteEqSettingPayloadHandler.swift */,
+				4473227727D5AEC4004C6103 /* RemoteEqSettingsPayloadHandler.swift */,
+				4473227927D5AF01004C6103 /* KeyPayloadHandler.swift */,
+				4473227B27D5AF3D004C6103 /* UInt8PayloadHandler.swift */,
+				4473227D27D5AF81004C6103 /* BoolPayloadHandler.swift */,
+				4473227F27D5B0C8004C6103 /* UInt8ToIntPayloadHandler.swift */,
+				4473228127D5B10E004C6103 /* UInt32PayloadHandler.swift */,
+				4473228327D5B148004C6103 /* StringPayloadHandler.swift */,
+				4473228527D5B195004C6103 /* FirmwareChecksumPayloadHandler.swift */,
+				4473228727D5B2D1004C6103 /* MtuPayloadHandler.swift */,
+				4473228B27D5DC72004C6103 /* ResponsePayloadHandler.swift */,
+				44A66C1128659041008638EE /* DeviceCapacitiesPayloadHandler.swift */,
+				44FA995529FA507400E30606 /* SpatialAudioModePayloadHandler.swift */,
+				44FA995729FA557700E30606 /* BassEngineRangePayloadHandler.swift */,
+				44F598602A36F19D00B9BBA0 /* TlvPayloadHandler.swift */,
+				4473228927D5D709004C6103 /* TlvResponsePayloadHandler.swift */,
+				44F598682A370FE700B9BBA0 /* MultipointPayloadHandler.swift */,
+				44F598722A39C13100B9BBA0 /* Int8PayloadHandler.swift */,
+			);
+			path = PayloadHandler;
+			sourceTree = "<group>";
+		};
+		44CD5D0527997D2400DA2B01 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				44A66B792841F57A008638EE /* ABDevice.swift */,
+				44CD5D0627997D3C00DA2B01 /* DeviceBeacon.swift */,
+				44A66B732840CAAC008638EE /* EarbudsBeacon.swift */,
+				44A66B6F2840C9FC008638EE /* DeviceBeaconV1.swift */,
+				44A66B712840CA05008638EE /* DeviceBeaconV2.swift */,
+				44F9C3E02790101C004347D4 /* DevicePower.swift */,
+				4473226327D20EFC004C6103 /* RemoteEqSetting.swift */,
+				44F9C3E627901114004347D4 /* DeviceComponentPower.swift */,
+				44FA996329FA5A4900E30606 /* SpatialAudioMode.swift */,
+				44F598522A2DCAC500B9BBA0 /* DeviceCapacities.swift */,
+				44F598622A36FED700B9BBA0 /* SinglePoint.swift */,
+				44F598642A37002800B9BBA0 /* Multipoint.swift */,
+				44F598662A37009F00B9BBA0 /* BassEngineRange.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		44F9C3AA278D77C9004347D4 /* DeviceInfo */ = {
+			isa = PBXGroup;
+			children = (
+				44F9C3CE279000F4004347D4 /* DeviceInfoCallable.swift */,
+				44F9C3D027900293004347D4 /* AbstractDeviceInfoCallable.swift */,
+				44F9C3D2279009E0004347D4 /* DeviceInfoBooleanCallable.swift */,
+				44F9C3D427900BEC004347D4 /* DeviceInfoDataCallable.swift */,
+				44F9C3D627900C2F004347D4 /* DeviceInfoByteCallable.swift */,
+				44F9C3E227901028004347D4 /* DeviceInfoUInt16Callable.swift */,
+				44F9C3D827900CBE004347D4 /* DeviceInfoUInt32Callable.swift */,
+				44F9C3DA27900D6B004347D4 /* DeviceInfoKeyCallable.swift */,
+				44F9C3DC27900F5D004347D4 /* DeviceInfoMtuCallable.swift */,
+				44F9C3DE27901007004347D4 /* DeviceInfoPowerCallable.swift */,
+				44F9C3E42790108D004347D4 /* DeviceInfoStringCallable.swift */,
+				44EECF8B27B60EE6009539B8 /* DeviceInfoOtaChecksumCallable.swift */,
+				4473225D27D1AA02004C6103 /* DeviceInfoUInt8ToIntCallable.swift */,
+				4473226127D204A4004C6103 /* DeviceInfoRemoteEqSettingsCallable.swift */,
+				4473226527D231E5004C6103 /* DeviceInfoRemoteEqSettingCallable.swift */,
+			);
+			path = DeviceInfo;
+			sourceTree = "<group>";
+		};
+		44F9C3E827902AD0004347D4 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				44F9C3E927902AED004347D4 /* NotificationCallable.swift */,
+				44F9C3EB27902B33004347D4 /* AbstractNotificationCallable.swift */,
+				4473224F27D0A93A004C6103 /* NotificationPowerCallable.swift */,
+				4473225127D0A9B5004C6103 /* NotificationDataCallable.swift */,
+				4473225327D0AA0A004C6103 /* NotificationKeyCallable.swift */,
+				4473225527D0AA8C004C6103 /* NotificationByteCallable.swift */,
+				4473225727D0AAC7004C6103 /* NotificationBooleanCallable.swift */,
+				4473225F27D1AB03004C6103 /* NotificationUInt8ToIntCallable.swift */,
+				4473226D27D48F42004C6103 /* NotificationRemoteEqSettingCallable.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		44F9C49627956D99004347D4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				44EECFFB27BE2A0C009539B8 /* DequeModule.xcframework */,
+				443EAF362797E1C3007B7970 /* libUtils.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		4469919A278C086A00887B4E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		4469919E278C086A00887B4E /* DeviceManager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 446991A8278C086A00887B4E /* Build configuration list for PBXNativeTarget "DeviceManager" */;
+			buildPhases = (
+				4469919A278C086A00887B4E /* Headers */,
+				4469919B278C086A00887B4E /* Sources */,
+				4469919C278C086A00887B4E /* Frameworks */,
+				4469919D278C086A00887B4E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DeviceManager;
+			productName = DeviceManager;
+			productReference = 4469919F278C086A00887B4E /* DeviceManager.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		44699196278C086A00887B4E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1310;
+				TargetAttributes = {
+					4469919E278C086A00887B4E = {
+						CreatedOnToolsVersion = 13.1;
+					};
+				};
+			};
+			buildConfigurationList = 44699199278C086A00887B4E /* Build configuration list for PBXProject "DeviceManager" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 44699195278C086A00887B4E;
+			productRefGroup = 446991A0278C086A00887B4E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4469919E278C086A00887B4E /* DeviceManager */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4469919D278C086A00887B4E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4469919B278C086A00887B4E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44F598632A36FED700B9BBA0 /* SinglePoint.swift in Sources */,
+				44F9C3E327901028004347D4 /* DeviceInfoUInt16Callable.swift in Sources */,
+				44F598592A36B19000B9BBA0 /* MultipointRequest.swift in Sources */,
+				44F9C4D527966904004347D4 /* ResponseHandler.swift in Sources */,
+				44F9C3C3278FCDAF004347D4 /* InEarDetectRequest.swift in Sources */,
+				4473226027D1AB03004C6103 /* NotificationUInt8ToIntCallable.swift in Sources */,
+				446991E0278C3A4400887B4E /* ResponseCallable.swift in Sources */,
+				44FA995A29FA568100E30606 /* SpatialAudioModeRequest.swift in Sources */,
+				446991D8278C2C8C00887B4E /* CommandProtocol.swift in Sources */,
+				44F9C3B9278ECBD3004347D4 /* ClearPairRecordRequest.swift in Sources */,
+				44A66C14286599CF008638EE /* SoundEffect3dRequest.swift in Sources */,
+				44F9C3B5278EC716004347D4 /* AutoShutdownRequest.swift in Sources */,
+				4473225427D0AA0A004C6103 /* NotificationKeyCallable.swift in Sources */,
+				4473227427D5AD70004C6103 /* PowerPayloadHandler.swift in Sources */,
+				4473227627D5AE86004C6103 /* RemoteEqSettingPayloadHandler.swift in Sources */,
+				44F9C3EC27902B33004347D4 /* AbstractNotificationCallable.swift in Sources */,
+				446991A4278C086A00887B4E /* DeviceManager.docc in Sources */,
+				44F9C3BD278ED307004347D4 /* EqRequest.swift in Sources */,
+				446991E2278C4E8F00887B4E /* AbstractResponseCallable.swift in Sources */,
+				44F9C3DD27900F5D004347D4 /* DeviceInfoMtuCallable.swift in Sources */,
+				44F9C3E12790101C004347D4 /* DevicePower.swift in Sources */,
+				4473226E27D48F42004C6103 /* NotificationRemoteEqSettingCallable.swift in Sources */,
+				4473228C27D5DC72004C6103 /* ResponsePayloadHandler.swift in Sources */,
+				4473225027D0A93A004C6103 /* NotificationPowerCallable.swift in Sources */,
+				446991D4278C21E000887B4E /* Request.swift in Sources */,
+				4473228A27D5D709004C6103 /* TlvResponsePayloadHandler.swift in Sources */,
+				44F598692A370FE700B9BBA0 /* MultipointPayloadHandler.swift in Sources */,
+				44F9C3C9278FD381004347D4 /* LedSwitchRequest.swift in Sources */,
+				446991E4278C53F600887B4E /* TlvResponseCallable.swift in Sources */,
+				4473228827D5B2D1004C6103 /* MtuPayloadHandler.swift in Sources */,
+				44A66C1228659042008638EE /* DeviceCapacitiesPayloadHandler.swift in Sources */,
+				44F9C3BF278FCD1C004347D4 /* FactoryResetRequest.swift in Sources */,
+				4473225C27D0E327004C6103 /* TransparencyGainRequest.swift in Sources */,
+				44A66B7A2841F57A008638EE /* ABDevice.swift in Sources */,
+				44F598572A344FAB00B9BBA0 /* TlvRequest.swift in Sources */,
+				44F9C3C7278FD30C004347D4 /* LanguageRequest.swift in Sources */,
+				44A66B742840CAAC008638EE /* EarbudsBeacon.swift in Sources */,
+				4473226227D204A4004C6103 /* DeviceInfoRemoteEqSettingsCallable.swift in Sources */,
+				44F9C3C1278FCD7E004347D4 /* FindDeviceRequest.swift in Sources */,
+				44CD5D0727997D3C00DA2B01 /* DeviceBeacon.swift in Sources */,
+				44F9C3D927900CBE004347D4 /* DeviceInfoUInt32Callable.swift in Sources */,
+				44F9C3A9278D735B004347D4 /* BoolResponseCallable.swift in Sources */,
+				4473227827D5AEC4004C6103 /* RemoteEqSettingsPayloadHandler.swift in Sources */,
+				44F9C3AE278D9FAF004347D4 /* DeviceManagerApi.swift in Sources */,
+				44FA995E29FA589500E30606 /* AntiWindNoiseRequest.swift in Sources */,
+				44F9C3CB278FD3C3004347D4 /* MusicControlRequest.swift in Sources */,
+				44F9C3CD278FD6F1004347D4 /* WorkModeRequest.swift in Sources */,
+				44F9C3D127900293004347D4 /* AbstractDeviceInfoCallable.swift in Sources */,
+				4473228027D5B0C8004C6103 /* UInt8ToIntPayloadHandler.swift in Sources */,
+				4473227C27D5AF3D004C6103 /* UInt8PayloadHandler.swift in Sources */,
+				44F5985F2A36F0A100B9BBA0 /* VoiceRecognitionRequest.swift in Sources */,
+				44F9C3CF279000F4004347D4 /* DeviceInfoCallable.swift in Sources */,
+				4473225E27D1AA02004C6103 /* DeviceInfoUInt8ToIntCallable.swift in Sources */,
+				44F9C3D3279009E0004347D4 /* DeviceInfoBooleanCallable.swift in Sources */,
+				44F9C3EE27955F76004347D4 /* RequestHandler.swift in Sources */,
+				44F9C3D727900C2F004347D4 /* DeviceInfoByteCallable.swift in Sources */,
+				4473226427D20EFC004C6103 /* RemoteEqSetting.swift in Sources */,
+				44F9C3B7278EC873004347D4 /* BluetoothNameRequest.swift in Sources */,
+				44F598612A36F19D00B9BBA0 /* TlvPayloadHandler.swift in Sources */,
+				4473227E27D5AF81004C6103 /* BoolPayloadHandler.swift in Sources */,
+				446991D1278C1A5600887B4E /* DeviceCommManager.swift in Sources */,
+				44F598532A2DCAC500B9BBA0 /* DeviceCapacities.swift in Sources */,
+				44F9C3BB278ECC1C004347D4 /* DeviceInfoRequest.swift in Sources */,
+				44F9C3E727901114004347D4 /* DeviceComponentPower.swift in Sources */,
+				44F598732A39C13100B9BBA0 /* Int8PayloadHandler.swift in Sources */,
+				44F9C3AC278D780B004347D4 /* Notification.swift in Sources */,
+				4473228227D5B10E004C6103 /* UInt32PayloadHandler.swift in Sources */,
+				4473227227D5AD23004C6103 /* AbstractPayloadHandler.swift in Sources */,
+				44F9C4D72796691D004347D4 /* ResponseMerger.swift in Sources */,
+				4473228427D5B148004C6103 /* StringPayloadHandler.swift in Sources */,
+				446991DD278C382400887B4E /* AncModeRequest.swift in Sources */,
+				44FA995829FA557700E30606 /* BassEngineRangePayloadHandler.swift in Sources */,
+				44FA995029F9206600E30606 /* BoolRequest.swift in Sources */,
+				44F5985B2A36CD2200B9BBA0 /* AncRequest.swift in Sources */,
+				44F598652A37002800B9BBA0 /* Multipoint.swift in Sources */,
+				44F9C3DF27901007004347D4 /* DeviceInfoPowerCallable.swift in Sources */,
+				4473225627D0AA8C004C6103 /* NotificationByteCallable.swift in Sources */,
+				4473225827D0AAC7004C6103 /* NotificationBooleanCallable.swift in Sources */,
+				44A66B722840CA05008638EE /* DeviceBeaconV2.swift in Sources */,
+				44A66B702840C9FD008638EE /* DeviceBeaconV1.swift in Sources */,
+				446991DA278C2ED500887B4E /* Response.swift in Sources */,
+				4473225227D0A9B5004C6103 /* NotificationDataCallable.swift in Sources */,
+				44F5985D2A36EF4A00B9BBA0 /* BassEngineRequest.swift in Sources */,
+				44F9C3C5278FCDCF004347D4 /* KeyRequest.swift in Sources */,
+				44F9C3F027955FE7004347D4 /* RequestSplitter.swift in Sources */,
+				44EECF8C27B60EE6009539B8 /* DeviceInfoOtaChecksumCallable.swift in Sources */,
+				44F9C3EA27902AED004347D4 /* NotificationCallable.swift in Sources */,
+				44F9C3D527900BED004347D4 /* DeviceInfoDataCallable.swift in Sources */,
+				445D561627F4047000611B63 /* RequestData.swift in Sources */,
+				4473226627D231E5004C6103 /* DeviceInfoRemoteEqSettingCallable.swift in Sources */,
+				44F9C3E52790108D004347D4 /* DeviceInfoStringCallable.swift in Sources */,
+				4473227A27D5AF01004C6103 /* KeyPayloadHandler.swift in Sources */,
+				4473228627D5B195004C6103 /* FirmwareChecksumPayloadHandler.swift in Sources */,
+				44F9C3DB27900D6B004347D4 /* DeviceInfoKeyCallable.swift in Sources */,
+				4473225A27D0E252004C6103 /* AncGainRequest.swift in Sources */,
+				4473226827D23C60004C6103 /* PayloadHandler.swift in Sources */,
+				446991D6278C228200887B4E /* Command.swift in Sources */,
+				44F9C3B3278EC39A004347D4 /* AutoAnswerRequest.swift in Sources */,
+				44FA996429FA5A4900E30606 /* SpatialAudioMode.swift in Sources */,
+				44F598672A37009F00B9BBA0 /* BassEngineRange.swift in Sources */,
+				44FA995629FA507400E30606 /* SpatialAudioModePayloadHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		446991A6278C086A00887B4E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		446991A7278C086A00887B4E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		446991A9278C086A00887B4E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bluetrum.DeviceManager;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		446991AA278C086A00887B4E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bluetrum.DeviceManager;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		44699199278C086A00887B4E /* Build configuration list for PBXProject "DeviceManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				446991A6278C086A00887B4E /* Debug */,
+				446991A7278C086A00887B4E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		446991A8278C086A00887B4E /* Build configuration list for PBXNativeTarget "DeviceManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				446991A9278C086A00887B4E /* Debug */,
+				446991AA278C086A00887B4E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 44699196278C086A00887B4E /* Project object */;
+}

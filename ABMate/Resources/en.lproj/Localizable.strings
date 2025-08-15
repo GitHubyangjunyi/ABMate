@@ -1,0 +1,185 @@
+/* 
+  Localizable.strings
+  ABMate
+
+  Created by Bluetrum on 2022/3/19.
+  
+*/
+
+"ok"        = "OK";
+"cancel"    = "Cancel";
+"quit"      = "Quit";
+"edit"      = "Edit";
+
+"connect"       = "Connect";
+"disconnect"    = "Disconnect";
+"unpair"        = "Unpair";
+
+"multipoint"        = "Multipoint";
+"multipoint_desc"   = "Earbuds can maintain connections with multiple devices at the same time and switch between them easily.";
+"this_phone"        = "This Phone";
+"connections"       = "Connections";
+"connected"         = "Connected";
+"disconnected"      = "Disconnected";
+
+// Main
+"tab_bar_title_home"        = "Home";
+"tab_bar_title_function"    = "Function";
+"tab_bar_title_device"      = "Device";
+
+// Scanner
+"scanner_title"     = "Scanner";
+"device_not_found"  = "Cannot find any devices";
+"no_active_device"  = "Please connect device first";
+
+"goto_system_settings"      = "Goto system settings";
+"pairing_guide_description" = "Earbuds have not been paired. Select 'OK' jump to system settings, manually pair earbuds and go back";
+"pairing_timeout"           = "Pairing timeout";
+
+// EQ
+"eq_setting_default"    = "Default";
+"eq_setting_pop"        = "Pop";
+"eq_setting_rock"       = "Rock";
+"eq_setting_jazz"       = "Jazz";
+"eq_setting_classic"    = "Classic";
+"eq_setting_country"    = "Country";
+"eq_setting_add"        = "+";
+
+// Function
+"anc_transparency"  = "Transparency";
+"anc_off"           = "Off";
+"anc_on"            = "On";
+
+"anc_settings"      = "ANC Settings";
+"anc"               = "ANC";
+
+"equalizer" = "Equalizer";
+
+"key_function_none"             = "None";
+"key_function_recall"           = "Recall";
+"key_function_voice_assistant"  = "Voice Assistant";
+"key_function_previous"         = "Previous";
+"key_function_next"             = "Next";
+"key_function_volume_up"        = "Volume Up";
+"key_function_volume_down"      = "Volume Down";
+"key_function_play_pause"       = "Play/Pause";
+"key_function_game_mode"        = "Game Mode";
+"key_function_anc_control"      = "ANC Control";
+
+"key_function_title"    = "Key Functions";
+"key_function_select"   = "Select key function";
+
+"key_function_left"         = "Left";
+"key_function_right"        = "Right";
+"key_function_single_tap"   = "Single";
+"key_function_double_tap"   = "Double";
+"key_function_triple_tap"   = "Triple";
+"key_function_long_press"   = "Long";
+
+"work_mode_title"   = "Work Mode";
+"work_mode_normal"  = "Normal Mode";
+"work_mode_game"    = "Game Mode";
+
+"work_mode_select"  = "Select work mode";
+
+"device_rename_title"           = "Rename Device";
+"device_name"                   = "Device Name";
+"device_rename_tip"             = "Type a friendly name you like.";
+"device_name_empty_alert"       = "Device name can not be empty";
+"device_rename_complete_tip"    = "The renaming requires manual un-pair and re-pair Bluetooth before it can take effect.";
+
+"led_switch_title"  = "LED Switch";
+
+"sound_effect_title"           = "Sound Effect";
+"sound_effect_3d_switch_title" = "3D Sound Effect";
+"spatial_audio_switch_title"   = "Spatial Audio";
+"bass_engine_switch_title"     = "Bass";
+"anti_wind_noise_switch_title" = "Anti-Wind Noise";
+
+"find_device_title" = "Find Device";
+"find_device_tip"   = "Play sound on device";
+
+"earbuds_functions_title"   = "Earbuds Functions";
+
+"update_firmware_title"     = "Update Firmware";
+
+"factory_reset_title"       = "Factory Reset";
+"factory_reset_alert"       = "Device will do a factory reset, this operation will restore all the settings to default?";
+
+"clear_pair_record_title"       = "Clear Pair Record";
+"clear_pair_record_alert"       = "Device will clear pair record. Device will disconnect when finished?";
+
+// Request
+"request_timeout"   = "Request timeout";
+"request_succeeded" = "Request succeeded";
+"request_failed"    = "Request failed";
+
+// FOTA
+"fota_title" = "FOTA";
+
+"fota_file_not_exist_title"     = "OTA File not exist!";
+"fota_file_not_exist_message"   = "Put FOT file into File Sharing in iTunes.";
+"fota_read_file_error"          = "OTA File read error!";
+
+"fota_select_file_button_title" = "Select File";
+"fota_select_file"              = "Select FOT file";
+
+"fota_error_desc"               = "Error occurred: %@";
+"fota_error_same_firmware"      = "Same firmware";
+"fota_error_key_mismatch"       = "Key mismatch";
+"fota_error_crc_error"          = "CRC error";
+"fota_error_seq_error"          = "Sequence error";
+"fota_error_data_len_error"     = "Data length error";
+
+"fota_tws_disconnected_tip"     = "TWS disconnected, stop updating";
+"fota_tws_state_connected"      = "Connected";
+"fota_tws_state_disconnected"   = "Disconnected";
+
+"fota_update_ready"             = "Device is ready to update";
+"fota_udpate_refused"           = "Device refused the update";
+"fota_updating"                 = "Updating...";
+"fota_bluetooth_disconnected"   = "Bluetooth is disconnected";
+"fota_update_finish"            = "Update is finished";
+"fota_update_pause"             = "Update is paused";
+
+"fota_update_button_title"      = "Update";
+
+"fota_firmware_version"         = "Firmware Version:";
+"fota_tws"                      = "TWS";
+"fota_file_checksum"            = "File Checksum:";
+"fota_firmware_checksum"        = "FW Checksum:";
+"fota_checksum_tip"             = "Checksum match, no need to update.";
+
+// Device
+"connect_device_first"  = "Please connect device first";
+"device_disconnected"   = "Disconnected";
+"device_scan"           = "Scan";
+"device_disconnect"     = "Disconnect";
+"device_info"           = "Device Infos";
+
+// Equalizer
+"equalizer_title"               = "Equalizer";
+
+"equalizer_eq_name"             = "EQ Name";
+"equalizer_eq_name_tip"         = "Type a friendly name you like.";
+
+"equalizer_eq_custom"           = "Custom";
+"equalizer_eq_name_empty_alert" = "EQ name can not be empty";
+
+"equalizer_delete_alert"        = "<%@> will be deleted";
+"equalizer_delete_confirm"      = "Confirm?";
+
+// ANC
+"anc_settings_title"        = "ANC Settings";
+
+"anc_gain_level"            = "ANC Level";
+"anc_transparency_level"    = "Transparency Level";
+
+// Error
+"error_central_manager_not_powered_on"  = "Central Manager not powered on.";
+"error_device_not_support"              = "Device not supported";
+"error_device_closed"                   = "Device closed";
+"error_refused_by_device"               = "Refused by device";
+"error_no_ota_data_available"           = "No OTA data available";
+"error_device_report_error_code"        = "Device report an error, code = %d";
+"error_wait_response_timeout"           = "Waiting response timeout";

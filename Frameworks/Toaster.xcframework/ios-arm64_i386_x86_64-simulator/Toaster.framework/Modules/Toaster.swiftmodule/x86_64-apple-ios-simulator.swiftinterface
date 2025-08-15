@@ -1,0 +1,133 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
+// swift-module-flags: -target x86_64-apple-ios9.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Toaster
+import Swift
+import UIKit
+import _Concurrency
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class Delay : ObjectiveC.NSObject {
+  @objc(Short) public static let short: Swift.Double
+  @objc(Long) public static let long: Swift.Double
+  @objc deinit
+}
+@objc open class Toast : Foundation.Operation {
+  @objc public var text: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc public var attributedText: Foundation.NSAttributedString? {
+    @objc get
+    @objc set
+  }
+  @objc public var delay: Foundation.TimeInterval
+  @objc public var duration: Foundation.TimeInterval
+  @objc override dynamic open var isExecuting: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic open var isFinished: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public var view: Toaster.ToastView
+  @objc public init(text: Swift.String?, delay: Foundation.TimeInterval = 0, duration: Foundation.TimeInterval = Delay.short)
+  @objc public init(attributedText: Foundation.NSAttributedString?, delay: Foundation.TimeInterval = 0, duration: Foundation.TimeInterval = Delay.short)
+  @available(*, deprecated, message: "Use 'init(text:)' instead.")
+  public class func makeText(_ text: Swift.String) -> Toaster.Toast
+  @available(*, deprecated, message: "Use 'init(text:duration:)' instead.")
+  public class func makeText(_ text: Swift.String, duration: Foundation.TimeInterval) -> Toaster.Toast
+  @available(*, deprecated, message: "Use 'init(text:delay:duration:)' instead.")
+  public class func makeText(_ text: Swift.String?, delay: Foundation.TimeInterval, duration: Foundation.TimeInterval) -> Toaster.Toast
+  @objc public func show()
+  @objc override dynamic open func cancel()
+  @objc override dynamic open func start()
+  @objc override dynamic open func main()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class ToastCenter : ObjectiveC.NSObject {
+  open var currentToast: Toaster.Toast? {
+    get
+  }
+  @objc public var isSupportAccessibility: Swift.Bool
+  @objc public var isQueueEnabled: Swift.Bool
+  @objc public static let `default`: Toaster.ToastCenter
+  open func add(_ toast: Toaster.Toast)
+  @objc open func cancelAll()
+  @objc deinit
+}
+@objc @_Concurrency.MainActor(unsafe) open class ToastView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) open var text: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) open var attributedText: Foundation.NSAttributedString? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var backgroundColor: UIKit.UIColor? {
+    @_Concurrency.MainActor(unsafe) @objc get
+    @_Concurrency.MainActor(unsafe) @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic open var cornerRadius: CoreGraphics.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic open var textInsets: UIKit.UIEdgeInsets
+  @objc @_Concurrency.MainActor(unsafe) dynamic open var textColor: UIKit.UIColor? {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic open var font: UIKit.UIFont? {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic open var bottomOffsetPortrait: CoreGraphics.CGFloat
+  @objc @_Concurrency.MainActor(unsafe) dynamic open var bottomOffsetLandscape: CoreGraphics.CGFloat
+  @objc @_Concurrency.MainActor(unsafe) dynamic open var useSafeAreaForBottomOffset: Swift.Bool
+  @objc @_Concurrency.MainActor(unsafe) dynamic open var maxWidthRatio: (CoreGraphics.CGFloat)
+  @objc @_Concurrency.MainActor(unsafe) dynamic open var shadowPath: CoreGraphics.CGPath? {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic open var shadowColor: UIKit.UIColor? {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic open var shadowOpacity: Swift.Float {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic open var shadowOffset: CoreGraphics.CGSize {
+    @objc get
+    @objc set
+  }
+  @objc @_Concurrency.MainActor(unsafe) dynamic open var shadowRadius: CoreGraphics.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public init()
+  @_Concurrency.MainActor(unsafe) @objc required convenience dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func layoutSubviews()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func hitTest(_ point: CoreGraphics.CGPoint, with event: UIKit.UIEvent!) -> UIKit.UIView?
+  @objc deinit
+}
+@objc @_Concurrency.MainActor(unsafe) open class ToastWindow : UIKit.UIWindow {
+  @_Concurrency.MainActor(unsafe) public static let shared: Toaster.ToastWindow
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var rootViewController: UIKit.UIViewController? {
+    @_Concurrency.MainActor(unsafe) @objc get
+    @_Concurrency.MainActor(unsafe) @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var isHidden: Swift.Bool {
+    @_Concurrency.MainActor(unsafe) @objc get
+    @_Concurrency.MainActor(unsafe) @objc set
+  }
+  @_Concurrency.MainActor(unsafe) public init(frame: CoreGraphics.CGRect, mainWindow: UIKit.UIWindow?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func addSubview(_ view: UIKit.UIView)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func becomeKey()
+  @objc deinit
+}
+extension UIKit.UIApplication {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var next: UIKit.UIResponder? {
+    @_Concurrency.MainActor(unsafe) @objc get
+  }
+}

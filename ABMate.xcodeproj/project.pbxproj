@@ -1,0 +1,693 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 70;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4401FF9D280954F5000ED4D3 /* ScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4401FF9C280954F5000ED4D3 /* ScannerViewModel.swift */; };
+		44453EFF2A03CB1E0032E27F /* NoManagedDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44453EFE2A03CB1E0032E27F /* NoManagedDeviceView.swift */; };
+		4453E28D27DB248E004F0E05 /* ABMate.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4453E28B27DB248D004F0E05 /* ABMate.xcdatamodeld */; };
+		446D95862803D74D00E54087 /* DefaultDeviceCommManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446D95852803D74D00E54087 /* DefaultDeviceCommManager.swift */; };
+		4473226A27D33839004C6103 /* AncSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473226927D33839004C6103 /* AncSettingsViewController.swift */; };
+		4473226C27D3552C004C6103 /* RemoteEqViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473226B27D3552C004C6103 /* RemoteEqViewController.swift */; };
+		44A66B762841C56B008638EE /* GlobalConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A66B752841C56A008638EE /* GlobalConfig.swift */; };
+		44A66B782841F1D9008638EE /* ABEarbuds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A66B772841F1D9008638EE /* ABEarbuds.swift */; };
+		44CD5D26279D307C00DA2B01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CD5D25279D307C00DA2B01 /* AppDelegate.swift */; };
+		44CD5D2F279D307E00DA2B01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44CD5D2E279D307E00DA2B01 /* Assets.xcassets */; };
+		44CD5D32279D307E00DA2B01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44CD5D30279D307E00DA2B01 /* LaunchScreen.storyboard */; };
+		44CD890627E589A2002C3092 /* Toaster.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44CD890427E5897E002C3092 /* Toaster.xcframework */; };
+		44CD890727E589A2002C3092 /* Toaster.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 44CD890427E5897E002C3092 /* Toaster.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		44CD890A27E5B155002C3092 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44CD890C27E5B155002C3092 /* Localizable.strings */; };
+		44EECF9827BA3FBE009539B8 /* ScanDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EECF9727BA3FBE009539B8 /* ScanDeviceViewController.swift */; };
+		44EECF9B27BA3FD6009539B8 /* DeviceManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44EECF9A27BA3FD6009539B8 /* DeviceManager.framework */; };
+		44EECF9C27BA3FD6009539B8 /* DeviceManager.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 44EECF9A27BA3FD6009539B8 /* DeviceManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		44EECF9F27BA3FDA009539B8 /* FOTA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44EECF9E27BA3FDA009539B8 /* FOTA.framework */; };
+		44EECFA027BA3FDA009539B8 /* FOTA.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 44EECF9E27BA3FDA009539B8 /* FOTA.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		44EECFA227BA3FDF009539B8 /* libUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44EECFA127BA3FDF009539B8 /* libUtils.a */; };
+		44EECFB527BA4705009539B8 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EECFB427BA4705009539B8 /* Utils.swift */; };
+		44EECFB827BA5C63009539B8 /* DefaultLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EECFB727BA5C63009539B8 /* DefaultLogger.swift */; };
+		44EECFBF27BA6D6A009539B8 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EECFBA27BA6D6A009539B8 /* BaseViewModel.swift */; };
+		44EECFC027BA6D6A009539B8 /* SharedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EECFBB27BA6D6A009539B8 /* SharedViewModel.swift */; };
+		44EECFC127BA6D6A009539B8 /* DeviceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EECFBC27BA6D6A009539B8 /* DeviceRepository.swift */; };
+		44EECFC527BA6F3E009539B8 /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EECFC327BA6F3D009539B8 /* Beacon.swift */; };
+		44EECFC627BA6F3E009539B8 /* BLEConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EECFC427BA6F3D009539B8 /* BLEConstants.swift */; };
+		44EECFCA27BB48AD009539B8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EECFC927BB48AD009539B8 /* MainViewController.swift */; };
+		44EECFCC27BB8A03009539B8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EECFCB27BB8A03009539B8 /* HomeViewController.swift */; };
+		44EECFCE27BB8A73009539B8 /* FunctionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EECFCD27BB8A73009539B8 /* FunctionViewController.swift */; };
+		44EED00A27BE2E67009539B8 /* DequeModule.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44EED00827BE2E5F009539B8 /* DequeModule.xcframework */; };
+		44EED00B27BE2E67009539B8 /* DequeModule.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 44EED00827BE2E5F009539B8 /* DequeModule.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		44EED01227BE2F47009539B8 /* RxRelay.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44EED00C27BE2F13009539B8 /* RxRelay.xcframework */; };
+		44EED01327BE2F47009539B8 /* RxRelay.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 44EED00C27BE2F13009539B8 /* RxRelay.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		44EED01427BE2F49009539B8 /* RxSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44EED00D27BE2F13009539B8 /* RxSwift.xcframework */; };
+		44EED01527BE2F49009539B8 /* RxSwift.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 44EED00D27BE2F13009539B8 /* RxSwift.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		44EED01627BE2F4A009539B8 /* SnapKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44EED00E27BE2F13009539B8 /* SnapKit.xcframework */; };
+		44EED01727BE2F4A009539B8 /* SnapKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 44EED00E27BE2F13009539B8 /* SnapKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		44EED01927BE3A22009539B8 /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EED01827BE3A22009539B8 /* BluetoothManager.swift */; };
+		44EED01D27BE4349009539B8 /* BluetoothDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EED01C27BE4349009539B8 /* BluetoothDelegate.swift */; };
+		44EED01F27C3330D009539B8 /* OtaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EED01E27C3330C009539B8 /* OtaViewController.swift */; };
+		44EED02527C36F8F009539B8 /* PowerUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EED02427C36F8F009539B8 /* PowerUI.swift */; };
+		44EED02727C3AA5E009539B8 /* EqualizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EED02627C3AA5D009539B8 /* EqualizerView.swift */; };
+		44EED02927C4D375009539B8 /* EqualizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EED02827C4D375009539B8 /* EqualizerViewController.swift */; };
+		44EED02D27C6129D009539B8 /* RxRelay+OnNext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EED02C27C6129D009539B8 /* RxRelay+OnNext.swift */; };
+		44EED02F27C616E4009539B8 /* DeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EED02E27C616E4009539B8 /* DeviceViewController.swift */; };
+		44EED03427C8D5A6009539B8 /* EqSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EED03327C8D5A6009539B8 /* EqSetting.swift */; };
+		44EED03627C8DD7F009539B8 /* CustomEqSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EED03527C8DD7F009539B8 /* CustomEqSetting.swift */; };
+		44EED03827C8DDA9009539B8 /* PresetEqSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EED03727C8DDA9009539B8 /* PresetEqSetting.swift */; };
+		44EED03A27C9D7E0009539B8 /* Data+EQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EED03927C9D7E0009539B8 /* Data+EQ.swift */; };
+		44EED03C27C9F94B009539B8 /* EQSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EED03B27C9F94B009539B8 /* EQSettingCell.swift */; };
+		44EED04027CC7D41009539B8 /* KeyTapGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EED03F27CC7D41009539B8 /* KeyTapGestureRecognizer.swift */; };
+		44F5986B2A38116E00B9BBA0 /* MultipointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F5986A2A38116E00B9BBA0 /* MultipointViewController.swift */; };
+		44F5986D2A395B2A00B9BBA0 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F5986C2A395B2A00B9BBA0 /* UserSettings.swift */; };
+		44FA996629FB772E00E30606 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA996529FB772E00E30606 /* String+Localized.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		44EECF9D27BA3FD6009539B8 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				44EED01527BE2F49009539B8 /* RxSwift.xcframework in Embed Frameworks */,
+				44EED00B27BE2E67009539B8 /* DequeModule.xcframework in Embed Frameworks */,
+				44CD890727E589A2002C3092 /* Toaster.xcframework in Embed Frameworks */,
+				44EED01327BE2F47009539B8 /* RxRelay.xcframework in Embed Frameworks */,
+				44EECFA027BA3FDA009539B8 /* FOTA.framework in Embed Frameworks */,
+				44EED01727BE2F4A009539B8 /* SnapKit.xcframework in Embed Frameworks */,
+				44EECF9C27BA3FD6009539B8 /* DeviceManager.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		4401FF9C280954F5000ED4D3 /* ScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewModel.swift; sourceTree = "<group>"; };
+		44453EFE2A03CB1E0032E27F /* NoManagedDeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoManagedDeviceView.swift; sourceTree = "<group>"; };
+		4453E28C27DB248D004F0E05 /* EqSettings.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EqSettings.xcdatamodel; sourceTree = "<group>"; };
+		446D95852803D74D00E54087 /* DefaultDeviceCommManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultDeviceCommManager.swift; sourceTree = "<group>"; };
+		4473226927D33839004C6103 /* AncSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AncSettingsViewController.swift; sourceTree = "<group>"; };
+		4473226B27D3552C004C6103 /* RemoteEqViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteEqViewController.swift; sourceTree = "<group>"; };
+		44A66B752841C56A008638EE /* GlobalConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConfig.swift; sourceTree = "<group>"; };
+		44A66B772841F1D9008638EE /* ABEarbuds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABEarbuds.swift; sourceTree = "<group>"; };
+		44CD5D22279D307C00DA2B01 /* ABMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ABMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		44CD5D25279D307C00DA2B01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		44CD5D2E279D307E00DA2B01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		44CD5D31279D307E00DA2B01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		44CD5D33279D307E00DA2B01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44CD890427E5897E002C3092 /* Toaster.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Toaster.xcframework; path = Frameworks/Toaster.xcframework; sourceTree = "<group>"; };
+		44CD890B27E5B155002C3092 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		44CD890D27E5C71B002C3092 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		44EECF9727BA3FBE009539B8 /* ScanDeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanDeviceViewController.swift; sourceTree = "<group>"; };
+		44EECF9A27BA3FD6009539B8 /* DeviceManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DeviceManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		44EECF9E27BA3FDA009539B8 /* FOTA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FOTA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		44EECFA127BA3FDF009539B8 /* libUtils.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libUtils.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		44EECFB427BA4705009539B8 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		44EECFB727BA5C63009539B8 /* DefaultLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLogger.swift; sourceTree = "<group>"; };
+		44EECFBA27BA6D6A009539B8 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		44EECFBB27BA6D6A009539B8 /* SharedViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedViewModel.swift; sourceTree = "<group>"; };
+		44EECFBC27BA6D6A009539B8 /* DeviceRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceRepository.swift; sourceTree = "<group>"; };
+		44EECFC327BA6F3D009539B8 /* Beacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
+		44EECFC427BA6F3D009539B8 /* BLEConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEConstants.swift; sourceTree = "<group>"; };
+		44EECFC927BB48AD009539B8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		44EECFCB27BB8A03009539B8 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		44EECFCD27BB8A73009539B8 /* FunctionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionViewController.swift; sourceTree = "<group>"; };
+		44EED00827BE2E5F009539B8 /* DequeModule.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = DequeModule.xcframework; path = Frameworks/DequeModule.xcframework; sourceTree = "<group>"; };
+		44EED00C27BE2F13009539B8 /* RxRelay.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxRelay.xcframework; path = Frameworks/RxRelay.xcframework; sourceTree = "<group>"; };
+		44EED00D27BE2F13009539B8 /* RxSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxSwift.xcframework; path = Frameworks/RxSwift.xcframework; sourceTree = "<group>"; };
+		44EED00E27BE2F13009539B8 /* SnapKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SnapKit.xcframework; path = Frameworks/SnapKit.xcframework; sourceTree = "<group>"; };
+		44EED01827BE3A22009539B8 /* BluetoothManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
+		44EED01C27BE4349009539B8 /* BluetoothDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothDelegate.swift; sourceTree = "<group>"; };
+		44EED01E27C3330C009539B8 /* OtaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtaViewController.swift; sourceTree = "<group>"; };
+		44EED02427C36F8F009539B8 /* PowerUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerUI.swift; sourceTree = "<group>"; };
+		44EED02627C3AA5D009539B8 /* EqualizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EqualizerView.swift; sourceTree = "<group>"; };
+		44EED02827C4D375009539B8 /* EqualizerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EqualizerViewController.swift; sourceTree = "<group>"; };
+		44EED02C27C6129D009539B8 /* RxRelay+OnNext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RxRelay+OnNext.swift"; sourceTree = "<group>"; };
+		44EED02E27C616E4009539B8 /* DeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceViewController.swift; sourceTree = "<group>"; };
+		44EED03327C8D5A6009539B8 /* EqSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EqSetting.swift; sourceTree = "<group>"; };
+		44EED03527C8DD7F009539B8 /* CustomEqSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEqSetting.swift; sourceTree = "<group>"; };
+		44EED03727C8DDA9009539B8 /* PresetEqSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetEqSetting.swift; sourceTree = "<group>"; };
+		44EED03927C9D7E0009539B8 /* Data+EQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+EQ.swift"; sourceTree = "<group>"; };
+		44EED03B27C9F94B009539B8 /* EQSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EQSettingCell.swift; sourceTree = "<group>"; };
+		44EED03F27CC7D41009539B8 /* KeyTapGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyTapGestureRecognizer.swift; sourceTree = "<group>"; };
+		44F5986A2A38116E00B9BBA0 /* MultipointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipointViewController.swift; sourceTree = "<group>"; };
+		44F5986C2A395B2A00B9BBA0 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		44FA996529FB772E00E30606 /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		1C44879B2E4F0E9500CD533B /* UIKitExtesions */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = UIKitExtesions; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		44CD5D1F279D307C00DA2B01 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44EECF9F27BA3FDA009539B8 /* FOTA.framework in Frameworks */,
+				44EED01627BE2F4A009539B8 /* SnapKit.xcframework in Frameworks */,
+				44EECFA227BA3FDF009539B8 /* libUtils.a in Frameworks */,
+				44EECF9B27BA3FD6009539B8 /* DeviceManager.framework in Frameworks */,
+				44CD890627E589A2002C3092 /* Toaster.xcframework in Frameworks */,
+				44EED01427BE2F49009539B8 /* RxSwift.xcframework in Frameworks */,
+				44EED00A27BE2E67009539B8 /* DequeModule.xcframework in Frameworks */,
+				44EED01227BE2F47009539B8 /* RxRelay.xcframework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		44CD5D19279D307C00DA2B01 = {
+			isa = PBXGroup;
+			children = (
+				44CD5D24279D307C00DA2B01 /* ABMate */,
+				44CD5D23279D307C00DA2B01 /* Products */,
+				44EECF9927BA3FD6009539B8 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		44CD5D23279D307C00DA2B01 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				44CD5D22279D307C00DA2B01 /* ABMate.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		44CD5D24279D307C00DA2B01 /* ABMate */ = {
+			isa = PBXGroup;
+			children = (
+				1C44879B2E4F0E9500CD533B /* UIKitExtesions */,
+				44A66B752841C56A008638EE /* GlobalConfig.swift */,
+				44EED03227C8D593009539B8 /* EQ */,
+				44EED01B27BE4335009539B8 /* Bluetooth */,
+				44EECF9627BA3D40009539B8 /* ViewControllers */,
+				44EECFBD27BA6D6A009539B8 /* Models */,
+				44EECFB927BA6D6A009539B8 /* ViewModels */,
+				44EECF9527BA39F6009539B8 /* UI */,
+				44EECFB627BA5C55009539B8 /* Log */,
+				44EED02027C3336E009539B8 /* Extensions */,
+				44EECFB327BA46EE009539B8 /* Utils */,
+				44EECF9427BA39C3009539B8 /* Resources */,
+				44EECF9327BA3980009539B8 /* Entry */,
+			);
+			path = ABMate;
+			sourceTree = "<group>";
+		};
+		44EECF9327BA3980009539B8 /* Entry */ = {
+			isa = PBXGroup;
+			children = (
+				44CD5D25279D307C00DA2B01 /* AppDelegate.swift */,
+				44CD5D33279D307E00DA2B01 /* Info.plist */,
+			);
+			path = Entry;
+			sourceTree = "<group>";
+		};
+		44EECF9427BA39C3009539B8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				44CD5D2E279D307E00DA2B01 /* Assets.xcassets */,
+				4453E28B27DB248D004F0E05 /* ABMate.xcdatamodeld */,
+				44CD890C27E5B155002C3092 /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		44EECF9527BA39F6009539B8 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				44CD5D30279D307E00DA2B01 /* LaunchScreen.storyboard */,
+				44EED02427C36F8F009539B8 /* PowerUI.swift */,
+				44EED02627C3AA5D009539B8 /* EqualizerView.swift */,
+				44EED03B27C9F94B009539B8 /* EQSettingCell.swift */,
+				44EED03F27CC7D41009539B8 /* KeyTapGestureRecognizer.swift */,
+				44453EFE2A03CB1E0032E27F /* NoManagedDeviceView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		44EECF9627BA3D40009539B8 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				44EECF9727BA3FBE009539B8 /* ScanDeviceViewController.swift */,
+				44EECFC927BB48AD009539B8 /* MainViewController.swift */,
+				44EECFCB27BB8A03009539B8 /* HomeViewController.swift */,
+				44EECFCD27BB8A73009539B8 /* FunctionViewController.swift */,
+				44EED01E27C3330C009539B8 /* OtaViewController.swift */,
+				44EED02E27C616E4009539B8 /* DeviceViewController.swift */,
+				44EED02827C4D375009539B8 /* EqualizerViewController.swift */,
+				4473226B27D3552C004C6103 /* RemoteEqViewController.swift */,
+				4473226927D33839004C6103 /* AncSettingsViewController.swift */,
+				44F5986A2A38116E00B9BBA0 /* MultipointViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		44EECF9927BA3FD6009539B8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				44CD890427E5897E002C3092 /* Toaster.xcframework */,
+				44EED00C27BE2F13009539B8 /* RxRelay.xcframework */,
+				44EED00D27BE2F13009539B8 /* RxSwift.xcframework */,
+				44EED00E27BE2F13009539B8 /* SnapKit.xcframework */,
+				44EECFA127BA3FDF009539B8 /* libUtils.a */,
+				44EED00827BE2E5F009539B8 /* DequeModule.xcframework */,
+				44EECF9E27BA3FDA009539B8 /* FOTA.framework */,
+				44EECF9A27BA3FD6009539B8 /* DeviceManager.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		44EECFB327BA46EE009539B8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				44EECFC327BA6F3D009539B8 /* Beacon.swift */,
+				44EECFC427BA6F3D009539B8 /* BLEConstants.swift */,
+				44EECFB427BA4705009539B8 /* Utils.swift */,
+				44F5986C2A395B2A00B9BBA0 /* UserSettings.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		44EECFB627BA5C55009539B8 /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				44EECFB727BA5C63009539B8 /* DefaultLogger.swift */,
+			);
+			path = Log;
+			sourceTree = "<group>";
+		};
+		44EECFB927BA6D6A009539B8 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				446D95852803D74D00E54087 /* DefaultDeviceCommManager.swift */,
+				44EECFBA27BA6D6A009539B8 /* BaseViewModel.swift */,
+				44EECFBB27BA6D6A009539B8 /* SharedViewModel.swift */,
+				4401FF9C280954F5000ED4D3 /* ScannerViewModel.swift */,
+				44EECFBC27BA6D6A009539B8 /* DeviceRepository.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		44EECFBD27BA6D6A009539B8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				44A66B772841F1D9008638EE /* ABEarbuds.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		44EED01B27BE4335009539B8 /* Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				44EED01C27BE4349009539B8 /* BluetoothDelegate.swift */,
+				44EED01827BE3A22009539B8 /* BluetoothManager.swift */,
+			);
+			path = Bluetooth;
+			sourceTree = "<group>";
+		};
+		44EED02027C3336E009539B8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				44EED02C27C6129D009539B8 /* RxRelay+OnNext.swift */,
+				44EED03927C9D7E0009539B8 /* Data+EQ.swift */,
+				44FA996529FB772E00E30606 /* String+Localized.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		44EED03227C8D593009539B8 /* EQ */ = {
+			isa = PBXGroup;
+			children = (
+				44EED03327C8D5A6009539B8 /* EqSetting.swift */,
+				44EED03527C8DD7F009539B8 /* CustomEqSetting.swift */,
+				44EED03727C8DDA9009539B8 /* PresetEqSetting.swift */,
+			);
+			path = EQ;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		44CD5D21279D307C00DA2B01 /* ABMate */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 44CD5D36279D307E00DA2B01 /* Build configuration list for PBXNativeTarget "ABMate" */;
+			buildPhases = (
+				44CD5D1E279D307C00DA2B01 /* Sources */,
+				44CD5D1F279D307C00DA2B01 /* Frameworks */,
+				44CD5D20279D307C00DA2B01 /* Resources */,
+				44EECF9D27BA3FD6009539B8 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				1C44879B2E4F0E9500CD533B /* UIKitExtesions */,
+			);
+			name = ABMate;
+			packageProductDependencies = (
+			);
+			productName = ABMate;
+			productReference = 44CD5D22279D307C00DA2B01 /* ABMate.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		44CD5D1A279D307C00DA2B01 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					44CD5D21279D307C00DA2B01 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 44CD5D1D279D307C00DA2B01 /* Build configuration list for PBXProject "ABMate" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"zh-Hans",
+			);
+			mainGroup = 44CD5D19279D307C00DA2B01;
+			productRefGroup = 44CD5D23279D307C00DA2B01 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				44CD5D21279D307C00DA2B01 /* ABMate */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		44CD5D20279D307C00DA2B01 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44CD5D32279D307E00DA2B01 /* LaunchScreen.storyboard in Resources */,
+				44CD890A27E5B155002C3092 /* Localizable.strings in Resources */,
+				44CD5D2F279D307E00DA2B01 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		44CD5D1E279D307C00DA2B01 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44EED02F27C616E4009539B8 /* DeviceViewController.swift in Sources */,
+				44EED02D27C6129D009539B8 /* RxRelay+OnNext.swift in Sources */,
+				44F5986B2A38116E00B9BBA0 /* MultipointViewController.swift in Sources */,
+				44F5986D2A395B2A00B9BBA0 /* UserSettings.swift in Sources */,
+				4401FF9D280954F5000ED4D3 /* ScannerViewModel.swift in Sources */,
+				44EED02927C4D375009539B8 /* EqualizerViewController.swift in Sources */,
+				44EECFB827BA5C63009539B8 /* DefaultLogger.swift in Sources */,
+				44EED03C27C9F94B009539B8 /* EQSettingCell.swift in Sources */,
+				44EECFC127BA6D6A009539B8 /* DeviceRepository.swift in Sources */,
+				44EED04027CC7D41009539B8 /* KeyTapGestureRecognizer.swift in Sources */,
+				446D95862803D74D00E54087 /* DefaultDeviceCommManager.swift in Sources */,
+				44EECFCA27BB48AD009539B8 /* MainViewController.swift in Sources */,
+				44EECF9827BA3FBE009539B8 /* ScanDeviceViewController.swift in Sources */,
+				44EED01F27C3330D009539B8 /* OtaViewController.swift in Sources */,
+				44EED03A27C9D7E0009539B8 /* Data+EQ.swift in Sources */,
+				4473226C27D3552C004C6103 /* RemoteEqViewController.swift in Sources */,
+				44CD5D26279D307C00DA2B01 /* AppDelegate.swift in Sources */,
+				44EED02527C36F8F009539B8 /* PowerUI.swift in Sources */,
+				44EECFC027BA6D6A009539B8 /* SharedViewModel.swift in Sources */,
+				44FA996629FB772E00E30606 /* String+Localized.swift in Sources */,
+				4473226A27D33839004C6103 /* AncSettingsViewController.swift in Sources */,
+				44EED01D27BE4349009539B8 /* BluetoothDelegate.swift in Sources */,
+				44453EFF2A03CB1E0032E27F /* NoManagedDeviceView.swift in Sources */,
+				44EECFC527BA6F3E009539B8 /* Beacon.swift in Sources */,
+				44EED02727C3AA5E009539B8 /* EqualizerView.swift in Sources */,
+				44EED03627C8DD7F009539B8 /* CustomEqSetting.swift in Sources */,
+				44A66B762841C56B008638EE /* GlobalConfig.swift in Sources */,
+				4453E28D27DB248E004F0E05 /* ABMate.xcdatamodeld in Sources */,
+				44EECFB527BA4705009539B8 /* Utils.swift in Sources */,
+				44A66B782841F1D9008638EE /* ABEarbuds.swift in Sources */,
+				44EECFC627BA6F3E009539B8 /* BLEConstants.swift in Sources */,
+				44EED01927BE3A22009539B8 /* BluetoothManager.swift in Sources */,
+				44EECFCE27BB8A73009539B8 /* FunctionViewController.swift in Sources */,
+				44EECFCC27BB8A03009539B8 /* HomeViewController.swift in Sources */,
+				44EED03427C8D5A6009539B8 /* EqSetting.swift in Sources */,
+				44EECFBF27BA6D6A009539B8 /* BaseViewModel.swift in Sources */,
+				44EED03827C8DDA9009539B8 /* PresetEqSetting.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		44CD5D30279D307E00DA2B01 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				44CD5D31279D307E00DA2B01 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		44CD890C27E5B155002C3092 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				44CD890B27E5B155002C3092 /* en */,
+				44CD890D27E5C71B002C3092 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		44CD5D34279D307E00DA2B01 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		44CD5D35279D307E00DA2B01 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		44CD5D37279D307E00DA2B01 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 23062000;
+				DEVELOPMENT_TEAM = 932WZ577GP;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ABMate/Entry/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "AB Mate";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Need Bluetooth";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.6;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bluetrum.ABMate;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		44CD5D38279D307E00DA2B01 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 23062000;
+				DEVELOPMENT_TEAM = 932WZ577GP;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ABMate/Entry/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "AB Mate";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Need Bluetooth";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.6;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bluetrum.ABMate;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		44CD5D1D279D307C00DA2B01 /* Build configuration list for PBXProject "ABMate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				44CD5D34279D307E00DA2B01 /* Debug */,
+				44CD5D35279D307E00DA2B01 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		44CD5D36279D307E00DA2B01 /* Build configuration list for PBXNativeTarget "ABMate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				44CD5D37279D307E00DA2B01 /* Debug */,
+				44CD5D38279D307E00DA2B01 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4453E28B27DB248D004F0E05 /* ABMate.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4453E28C27DB248D004F0E05 /* EqSettings.xcdatamodel */,
+			);
+			currentVersion = 4453E28C27DB248D004F0E05 /* EqSettings.xcdatamodel */;
+			path = ABMate.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 44CD5D1A279D307C00DA2B01 /* Project object */;
+}

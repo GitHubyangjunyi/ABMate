@@ -1,0 +1,185 @@
+/* 
+  Localizable.strings
+  ABMate
+
+  Created by Bluetrum on 2022/3/19.
+  
+*/
+
+"ok"        = "确定";
+"cancel"    = "取消";
+"quit"      = "放弃";
+"edit"      = "编辑";
+
+"connect"       = "连接";
+"disconnect"    = "断开连接";
+"unpair"        = "取消配对";
+
+"multipoint"        = "多设备连接";
+"multipoint_desc"   = "耳机可同时与多台设备保持连接，并轻松在设备间切换。";
+"this_phone"        = "本机";
+"connections"       = "连接";
+"connected"         = "已连接";
+"disconnected"      = "未连接";
+
+// Main
+"tab_bar_title_home"        = "主页";
+"tab_bar_title_function"    = "功能";
+"tab_bar_title_device"      = "设备";
+
+// Scanner
+"scanner_title"     = "扫描器";
+"device_not_found"  = "没有发现任何设备";
+"no_active_device"  = "请先连接设备";
+
+"goto_system_settings"      = "跳转到系统设置";
+"pairing_guide_description" = "耳机尚未配对。点击确认跳转到系统设置，手动配对耳机后返回。";
+"pairing_timeout"           = "配对超时";
+
+// EQ
+"eq_setting_default"    = "默认";
+"eq_setting_pop"        = "流行";
+"eq_setting_rock"       = "摇滚";
+"eq_setting_jazz"       = "爵士";
+"eq_setting_classic"    = "经典";
+"eq_setting_country"    = "乡村";
+"eq_setting_add"        = "+";
+
+// Function
+"anc_transparency"  = "通透";
+"anc_off"           = "关闭";
+"anc_on"            = "开启";
+
+"anc_settings"      = "主动降噪设置";
+"anc"               = "主动降噪";
+
+"equalizer" = "均衡器";
+
+"key_function_none"             = "无";
+"key_function_recall"           = "重拨";
+"key_function_voice_assistant"  = "语音助手";
+"key_function_previous"         = "上一曲";
+"key_function_next"             = "下一曲";
+"key_function_volume_up"        = "音量加";
+"key_function_volume_down"      = "音量减";
+"key_function_play_pause"       = "播放/暂停";
+"key_function_game_mode"        = "游戏模式";
+"key_function_anc_control"      = "主动降噪控制";
+
+"key_function_title"    = "按键功能";
+"key_function_select"   = "选择按键功能";
+
+"key_function_left"         = "左";
+"key_function_right"        = "右";
+"key_function_single_tap"   = "单击";
+"key_function_double_tap"   = "双击";
+"key_function_triple_tap"   = "三击";
+"key_function_long_press"   = "长按";
+
+"work_mode_title"   = "工作模式";
+"work_mode_normal"  = "普通模式";
+"work_mode_game"    = "游戏模式";
+
+"work_mode_select"  = "选择工作模式";
+
+"device_rename_title"           = "设备重命名";
+"device_name"                   = "设备名称";
+"device_rename_tip"             = "键入一个你喜欢的名称。";
+"device_name_empty_alert"       = "设备名称不能为空";
+"device_rename_complete_tip"    = "修改名称需要手动取消配对并重新配对蓝牙后才能生效。";
+
+"led_switch_title"  = "LED灯开关";
+
+"sound_effect_title"           = "音效";
+"sound_effect_3d_switch_title" = "3D音效";
+"spatial_audio_switch_title"   = "空间音频";
+"bass_engine_switch_title"     = "低音";
+"anti_wind_noise_switch_title" = "抗风噪";
+
+"find_device_title" = "查找设备";
+"find_device_tip"   = "在设备上播放声音";
+
+"earbuds_functions_title"   = "耳机功能";
+
+"update_firmware_title"     = "更新固件";
+
+"factory_reset_title"       = "恢复出厂设置";
+"factory_reset_alert"       = "设备将恢复成出厂设置，这将全部设置恢复到默认？";
+
+"clear_pair_record_title"       = "清除配对记录";
+"clear_pair_record_alert"       = "设备将清除配对记录，完成后断开连接？";
+
+// Request
+"request_timeout"   = "请求超时";
+"request_succeeded" = "请求成功";
+"request_failed"    = "请求失败";
+
+// FOTA
+"fota_title" = "FOTA";
+
+"fota_file_not_exist_title"     = "OTA文件不存在！";
+"fota_file_not_exist_message"   = "通过iTunes的文件共享放置OTA文件。";
+"fota_read_file_error"          = "OTA文件读取错误！";
+
+"fota_select_file_button_title" = "选择文件";
+"fota_select_file"              = "选择FOT文件";
+
+"fota_error_desc"               = "有错误发生：%@";
+"fota_error_same_firmware"      = "相同固件";
+"fota_error_key_mismatch"       = "密钥不匹配";
+"fota_error_crc_error"          = "CRC错误";
+"fota_error_seq_error"          = "包序号错误";
+"fota_error_data_len_error"     = "数据长度";
+
+"fota_tws_disconnected_tip"     = "TWS断开，停止升级";
+"fota_tws_state_connected"      = "已连接";
+"fota_tws_state_disconnected"   = "已断开";
+
+"fota_update_ready"             = "设备已经准备好升级";
+"fota_udpate_refused"           = "设备拒绝了升级";
+"fota_updating"                 = "正在升级...";
+"fota_bluetooth_disconnected"   = "蓝牙已断开";
+"fota_update_finish"            = "升级已完成";
+"fota_update_pause"             = "升级暂停";
+
+"fota_update_button_title"      = "升级";
+
+"fota_firmware_version"         = "固件版本：";
+"fota_tws"                      = "TWS";
+"fota_file_checksum"            = "文件校验值：";
+"fota_firmware_checksum"        = "固件校验值：";
+"fota_checksum_tip"             = "校验值匹配，无需升级。";
+
+// Device
+"connect_device_first"  = "请先连接设备";
+"device_disconnected"   = "已断开";
+"device_scan"           = "扫描";
+"device_disconnect"     = "断开";
+"device_info"           = "设备信息";
+
+// Equalizer
+"equalizer_title"               = "音效均衡器";
+
+"equalizer_eq_name"             = "音效名称";
+"equalizer_eq_name_tip"         = "键入一个你喜欢的音效名称。";
+
+"equalizer_eq_custom"           = "自定义";
+"equalizer_eq_name_empty_alert" = "音效名称不能为空";
+
+"equalizer_delete_alert"        = "<%@> 将被删除";
+"equalizer_delete_confirm"      = "确认？";
+
+// ANC
+"anc_settings_title"        = "主动降噪设置";
+
+"anc_gain_level"            = "主动降噪级别";
+"anc_transparency_level"    = "通透级别";
+
+// Error
+"error_central_manager_not_powered_on"  = "Central Manager未打开。";
+"error_device_not_support"              = "设备不支持";
+"error_device_closed"                   = "设备关闭";
+"error_refused_by_device"               = "设备已拒绝";
+"error_no_ota_data_available"           = "没有可用OTA数据";
+"error_device_report_error_code"        = "设备报告了一个错误，错误代码 = %d";
+"error_wait_response_timeout"           = "等待回复超时";
