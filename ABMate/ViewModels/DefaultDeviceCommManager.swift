@@ -73,7 +73,7 @@ public class DefaultDeviceCommManager: DeviceCommManager {
         super.sendRequest(request, completion: requestCompletion)
     }
     
-    private func processRequestToDevInfo(request: Request, result: Any) {
+    @MainActor private func processRequestToDevInfo(request: Request, result: Any) {
         // Update BehaviorRelay directly, or sendRequest to get latest status
         // Here choose the first one method
         

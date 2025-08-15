@@ -4,13 +4,4 @@
    <FileRef
       location = "group:ABMate.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:DeviceManager/DeviceManager.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:FOTA/FOTA.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:Utils/Utils.xcodeproj">
-   </FileRef>
 </Workspace>

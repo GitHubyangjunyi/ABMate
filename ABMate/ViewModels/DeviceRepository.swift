@@ -134,11 +134,11 @@ class DeviceRepository: NSObject {
         isOpened = false
     }
     
-    func sendRequest(_ request: Request) {
+    @MainActor func sendRequest(_ request: Request) {
         sendRequest(request, completion: nil)
     }
     
-    func sendRequest(_ request: Request, completion: RequestCompletion?) {
+    @MainActor func sendRequest(_ request: Request, completion: RequestCompletion?) {
         guard let device = workingDevice, device.peripheral.state == .connected else {
             return
         }
@@ -306,7 +306,7 @@ extension DeviceRepository: BluetoothDelegate {
 // MARK: - ConnectionStateCallback
 extension DeviceRepository: ConnectionStateCallback {
     
-    func onConnected(device: ABDevice) {
+    @MainActor func onConnected(device: ABDevice) {
         deviceCommManager.commDelegate = device
         deviceCommManager.responseErrorHandler = self
         
@@ -315,7 +315,7 @@ extension DeviceRepository: ConnectionStateCallback {
         requireNecessaryInfomation()
     }
     
-    func onReceiveAuthResult(device: ABDevice, passed: Bool) {
+    @MainActor func onReceiveAuthResult(device: ABDevice, passed: Bool) {
         if passed {
             _activeDevice = device
             // Require all device info
@@ -365,13 +365,13 @@ extension DeviceRepository {
         self.preparingDevice?.startAuth()
     }
     
-    func requireNecessaryInfomation() {
+    @MainActor func requireNecessaryInfomation() {
         // 先获取MTU，以便设置分包大小，然后再获取Capabilities，最后获取其他信息
         // First of all, require MTU, in order to set max packet size, and then require capabilities, finally other info
         requireMaxPacketSize()
     }
     
-    func requireMaxPacketSize() {
+    @MainActor func requireMaxPacketSize() {
         deviceCommManager.registerDeviceInfoCallback(Command.INFO_MAX_PACKET_SIZE, callableType: MtuPayloadHandler.self) {
             [weak self] in
             // No longer deal with Command.INFO_MAX_PACKET_SIZE
@@ -390,7 +390,7 @@ extension DeviceRepository {
         deviceCommManager.sendRequest(DeviceInfoRequest(Command.INFO_MAX_PACKET_SIZE), completion: failureCompletion)
     }
     
-    func requireCapabilities() {
+    @MainActor func requireCapabilities() {
         deviceCommManager.registerDeviceInfoCallback(Command.INFO_DEVICE_CAPABILITIES, callableType: DeviceCapacitiesPayloadHandler.self) {
             [weak self] in
             // No longer deal with Command.INFO_DEVICE_CAPABILITIES
@@ -415,7 +415,7 @@ extension DeviceRepository {
         deviceCommManager.sendRequest(DeviceInfoRequest(Command.INFO_DEVICE_CAPABILITIES), completion: failureCompletion)
     }
     
-    func requireMultipointInfo() {
+    @MainActor func requireMultipointInfo() {
         deviceCommManager.registerDeviceInfoCallback(Command.INFO_MULTIPOINT_INFO, callableType: MultipointPayloadHandler.self) {
             [weak self] in
             // No longer deal with Command.INFO_MULTIPOINT_INFO
@@ -453,7 +453,7 @@ extension DeviceRepository {
         deviceCommManager.sendRequest(DeviceInfoRequest(Command.INFO_MULTIPOINT_INFO), completion: failureCompletion)
     }
     
-    func reportLocalBluetoothAddress(_ address: String, successCompletion: @escaping () -> Void) {
+    @MainActor func reportLocalBluetoothAddress(_ address: String, successCompletion: @escaping () -> Void) {
         let localBluetoothAddress = Utils.addressStringToData(address)!
         let request = MultipointRequest.reportRequest(addressToReport: localBluetoothAddress)
         

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1CBE5A2C2E4F24DB007911D2 /* Bluetrum in Frameworks */ = {isa = PBXBuildFile; productRef = 1CBE5A2B2E4F24DB007911D2 /* Bluetrum */; };
+		1CBE5A2E2E4F24DB007911D2 /* DeviceManager in Frameworks */ = {isa = PBXBuildFile; productRef = 1CBE5A2D2E4F24DB007911D2 /* DeviceManager */; };
+		1CBE5A302E4F24DB007911D2 /* FOTA in Frameworks */ = {isa = PBXBuildFile; productRef = 1CBE5A2F2E4F24DB007911D2 /* FOTA */; };
+		1CBE5A322E4F24DB007911D2 /* Utils in Frameworks */ = {isa = PBXBuildFile; productRef = 1CBE5A312E4F24DB007911D2 /* Utils */; };
 		4401FF9D280954F5000ED4D3 /* ScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4401FF9C280954F5000ED4D3 /* ScannerViewModel.swift */; };
 		44453EFF2A03CB1E0032E27F /* NoManagedDeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44453EFE2A03CB1E0032E27F /* NoManagedDeviceView.swift */; };
 		4453E28D27DB248E004F0E05 /* ABMate.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4453E28B27DB248D004F0E05 /* ABMate.xcdatamodeld */; };
@@ -22,11 +26,6 @@
 		44CD890727E589A2002C3092 /* Toaster.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 44CD890427E5897E002C3092 /* Toaster.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		44CD890A27E5B155002C3092 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44CD890C27E5B155002C3092 /* Localizable.strings */; };
 		44EECF9827BA3FBE009539B8 /* ScanDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EECF9727BA3FBE009539B8 /* ScanDeviceViewController.swift */; };
-		44EECF9B27BA3FD6009539B8 /* DeviceManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44EECF9A27BA3FD6009539B8 /* DeviceManager.framework */; };
-		44EECF9C27BA3FD6009539B8 /* DeviceManager.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 44EECF9A27BA3FD6009539B8 /* DeviceManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		44EECF9F27BA3FDA009539B8 /* FOTA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44EECF9E27BA3FDA009539B8 /* FOTA.framework */; };
-		44EECFA027BA3FDA009539B8 /* FOTA.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 44EECF9E27BA3FDA009539B8 /* FOTA.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		44EECFA227BA3FDF009539B8 /* libUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44EECFA127BA3FDF009539B8 /* libUtils.a */; };
 		44EECFB527BA4705009539B8 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EECFB427BA4705009539B8 /* Utils.swift */; };
 		44EECFB827BA5C63009539B8 /* DefaultLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EECFB727BA5C63009539B8 /* DefaultLogger.swift */; };
 		44EECFBF27BA6D6A009539B8 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EECFBA27BA6D6A009539B8 /* BaseViewModel.swift */; };
@@ -37,8 +36,6 @@
 		44EECFCA27BB48AD009539B8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EECFC927BB48AD009539B8 /* MainViewController.swift */; };
 		44EECFCC27BB8A03009539B8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EECFCB27BB8A03009539B8 /* HomeViewController.swift */; };
 		44EECFCE27BB8A73009539B8 /* FunctionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EECFCD27BB8A73009539B8 /* FunctionViewController.swift */; };
-		44EED00A27BE2E67009539B8 /* DequeModule.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44EED00827BE2E5F009539B8 /* DequeModule.xcframework */; };
-		44EED00B27BE2E67009539B8 /* DequeModule.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 44EED00827BE2E5F009539B8 /* DequeModule.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		44EED01227BE2F47009539B8 /* RxRelay.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44EED00C27BE2F13009539B8 /* RxRelay.xcframework */; };
 		44EED01327BE2F47009539B8 /* RxRelay.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 44EED00C27BE2F13009539B8 /* RxRelay.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		44EED01427BE2F49009539B8 /* RxSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44EED00D27BE2F13009539B8 /* RxSwift.xcframework */; };
@@ -72,12 +69,9 @@
 			dstSubfolderSpec = 10;
 			files = (
 				44EED01527BE2F49009539B8 /* RxSwift.xcframework in Embed Frameworks */,
-				44EED00B27BE2E67009539B8 /* DequeModule.xcframework in Embed Frameworks */,
 				44CD890727E589A2002C3092 /* Toaster.xcframework in Embed Frameworks */,
 				44EED01327BE2F47009539B8 /* RxRelay.xcframework in Embed Frameworks */,
-				44EECFA027BA3FDA009539B8 /* FOTA.framework in Embed Frameworks */,
 				44EED01727BE2F4A009539B8 /* SnapKit.xcframework in Embed Frameworks */,
-				44EECF9C27BA3FD6009539B8 /* DeviceManager.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -102,9 +96,6 @@
 		44CD890B27E5B155002C3092 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		44CD890D27E5C71B002C3092 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		44EECF9727BA3FBE009539B8 /* ScanDeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanDeviceViewController.swift; sourceTree = "<group>"; };
-		44EECF9A27BA3FD6009539B8 /* DeviceManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DeviceManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		44EECF9E27BA3FDA009539B8 /* FOTA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FOTA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		44EECFA127BA3FDF009539B8 /* libUtils.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libUtils.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		44EECFB427BA4705009539B8 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		44EECFB727BA5C63009539B8 /* DefaultLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLogger.swift; sourceTree = "<group>"; };
 		44EECFBA27BA6D6A009539B8 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
@@ -115,7 +106,6 @@
 		44EECFC927BB48AD009539B8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		44EECFCB27BB8A03009539B8 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		44EECFCD27BB8A73009539B8 /* FunctionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionViewController.swift; sourceTree = "<group>"; };
-		44EED00827BE2E5F009539B8 /* DequeModule.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = DequeModule.xcframework; path = Frameworks/DequeModule.xcframework; sourceTree = "<group>"; };
 		44EED00C27BE2F13009539B8 /* RxRelay.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxRelay.xcframework; path = Frameworks/RxRelay.xcframework; sourceTree = "<group>"; };
 		44EED00D27BE2F13009539B8 /* RxSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxSwift.xcframework; path = Frameworks/RxSwift.xcframework; sourceTree = "<group>"; };
 		44EED00E27BE2F13009539B8 /* SnapKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SnapKit.xcframework; path = Frameworks/SnapKit.xcframework; sourceTree = "<group>"; };
@@ -147,14 +137,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44EECF9F27BA3FDA009539B8 /* FOTA.framework in Frameworks */,
 				44EED01627BE2F4A009539B8 /* SnapKit.xcframework in Frameworks */,
-				44EECFA227BA3FDF009539B8 /* libUtils.a in Frameworks */,
-				44EECF9B27BA3FD6009539B8 /* DeviceManager.framework in Frameworks */,
 				44CD890627E589A2002C3092 /* Toaster.xcframework in Frameworks */,
+				1CBE5A2E2E4F24DB007911D2 /* DeviceManager in Frameworks */,
 				44EED01427BE2F49009539B8 /* RxSwift.xcframework in Frameworks */,
-				44EED00A27BE2E67009539B8 /* DequeModule.xcframework in Frameworks */,
+				1CBE5A2C2E4F24DB007911D2 /* Bluetrum in Frameworks */,
 				44EED01227BE2F47009539B8 /* RxRelay.xcframework in Frameworks */,
+				1CBE5A322E4F24DB007911D2 /* Utils in Frameworks */,
+				1CBE5A302E4F24DB007911D2 /* FOTA in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,10 +244,6 @@
 				44EED00C27BE2F13009539B8 /* RxRelay.xcframework */,
 				44EED00D27BE2F13009539B8 /* RxSwift.xcframework */,
 				44EED00E27BE2F13009539B8 /* SnapKit.xcframework */,
-				44EECFA127BA3FDF009539B8 /* libUtils.a */,
-				44EED00827BE2E5F009539B8 /* DequeModule.xcframework */,
-				44EECF9E27BA3FDA009539B8 /* FOTA.framework */,
-				44EECF9A27BA3FD6009539B8 /* DeviceManager.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -351,6 +337,10 @@
 			);
 			name = ABMate;
 			packageProductDependencies = (
+				1CBE5A2B2E4F24DB007911D2 /* Bluetrum */,
+				1CBE5A2D2E4F24DB007911D2 /* DeviceManager */,
+				1CBE5A2F2E4F24DB007911D2 /* FOTA */,
+				1CBE5A312E4F24DB007911D2 /* Utils */,
 			);
 			productName = ABMate;
 			productReference = 44CD5D22279D307C00DA2B01 /* ABMate.app */;
@@ -381,6 +371,9 @@
 				"zh-Hans",
 			);
 			mainGroup = 44CD5D19279D307C00DA2B01;
+			packageReferences = (
+				1CBE5A2A2E4F24DB007911D2 /* XCLocalSwiftPackageReference "../Bluetrum" */,
+			);
 			productRefGroup = 44CD5D23279D307C00DA2B01 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -675,6 +668,32 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		1CBE5A2A2E4F24DB007911D2 /* XCLocalSwiftPackageReference "../Bluetrum" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../Bluetrum;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1CBE5A2B2E4F24DB007911D2 /* Bluetrum */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Bluetrum;
+		};
+		1CBE5A2D2E4F24DB007911D2 /* DeviceManager */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DeviceManager;
+		};
+		1CBE5A2F2E4F24DB007911D2 /* FOTA */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FOTA;
+		};
+		1CBE5A312E4F24DB007911D2 /* Utils */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Utils;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		4453E28B27DB248D004F0E05 /* ABMate.xcdatamodeld */ = {

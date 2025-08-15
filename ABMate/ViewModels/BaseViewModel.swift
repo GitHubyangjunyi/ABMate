@@ -12,6 +12,7 @@ import CoreBluetooth
 
 typealias SimpleRequestCompletion = (_ result: Bool?,  _ timeout: Bool) -> Void
 
+@MainActor
 class BaseViewModel {
     
     lazy var sharedDeviceRepo = DeviceRepository.shared
