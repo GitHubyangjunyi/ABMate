@@ -15,6 +15,7 @@ extension NoManagedDeviceView {
     private var roundCornerRadius: CGFloat { 8 }
 }
 
+// MARK: - 没有要管理的设备视图
 class NoManagedDeviceView: UIView {
     
     private var noDeviceImageView: UIImageView!
@@ -34,35 +35,29 @@ class NoManagedDeviceView: UIView {
         backgroundColor = containerBackgroundColor
         roundCorners(radius: roundCornerRadius)
         
-        // Everything is based on caseImageView
-        
         let imageContainerView = UIView()
         addSubview(imageContainerView)
         
         noDeviceImageView = UIImageView()
         noDeviceImageView.contentMode = .scaleAspectFit
         noDeviceImageView.image = UIImage(named: "no_device")
-        
         imageContainerView.addSubview(noDeviceImageView)
-        
-        noDeviceLabel = UILabel()
-        noDeviceLabel.text = "connect_device_first".localized
-        
-        imageContainerView.addSubview(noDeviceLabel)
-        
         noDeviceImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
         }
         
+        noDeviceLabel = UILabel()
+        noDeviceLabel.text = "connect_device_first".localized
+        imageContainerView.addSubview(noDeviceLabel)
         noDeviceLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(noDeviceImageView.snp.bottom).offset(MARGIN)
         }
         
         imageContainerView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
             make.top.equalTo(noDeviceImageView)
             make.bottom.equalTo(noDeviceLabel)
-            make.centerX.equalToSuperview()
             make.width.equalTo(noDeviceImageView)
         }
         

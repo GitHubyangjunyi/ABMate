@@ -15,20 +15,19 @@ extension HomeViewController {
     private var powerUiMargin: CGFloat { 8 }
 }
 
+// MARK: - 主页设备控制器
 class HomeViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
-    private let viewModel = SharedViewModel.shared
+    private let viewModel = SharedViewModel.shared  // 全局共享VM
     
     private var powerUI: PowerUI!
     private var noDeviceImageView: NoManagedDeviceView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = containerBackgroundColor
-        
-        // Left Button, Device infos
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "items"), style: .plain, target: self, action: #selector(openDeviceInfoView))
         
         powerUI = .init()
@@ -51,7 +50,8 @@ class HomeViewController: UIViewController {
                 self.powerUI.leftBatteryLevel = devicePower.leftSidePower?.powerLevel
                 self.powerUI.rightBatteryLevel = devicePower.rightSidePower?.powerLevel
                 self.powerUI.caseBatteryLevel = devicePower.casePower?.powerLevel
-                // Show connected device
+                
+                // 展示已经连接的设备
                 noDeviceImageView.isHidden = true
                 powerUI.alpha = 0
                 powerUI.isHidden = false
@@ -79,7 +79,7 @@ class HomeViewController: UIViewController {
         }.disposed(by: disposeBag)
     }
     
-    // MARK: - 打开设备信息页面
+    // MARK: - 左边打开设备信息页面
     @objc private func openDeviceInfoView() {
         let vc = DeviceViewController()
         navigationController?.pushViewController(vc, animated: true)
@@ -109,6 +109,6 @@ class HomeViewController: UIViewController {
     }
     
     private func connectDevice(_ device: ABDevice) {
-        self.viewModel.connect(device)
+        viewModel.connect(device)
     }
 }

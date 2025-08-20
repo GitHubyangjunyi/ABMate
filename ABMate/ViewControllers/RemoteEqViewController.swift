@@ -6,10 +6,10 @@
 //
 
 import UIKit
-import DeviceManager
-import RxSwift
 import SnapKit
+import RxSwift
 import Utils
+import DeviceManager
 
 /// EQ设置存储在耳机的时候使用
 /// Use this when EQ settings are stored in earbuds

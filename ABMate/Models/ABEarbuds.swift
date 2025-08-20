@@ -11,13 +11,28 @@ import DeviceManager
 import DequeModule
 import Utils
 
+extension ABEarbuds {
+    static func == (lhs: ABEarbuds, rhs: ABEarbuds) -> Bool {
+        return lhs.peripheral == rhs.peripheral
+    }
+}
+
+extension ABEarbuds {
+    public override var description: String {
+        return """
+               ABEarbuds: btAddress=\(btAddress), productId=\(productId), \
+               supportCTKD=\(supportCTKD), isConnected=\(isConnected), needAuth=\(needAuth), \
+               peripheral=\(peripheral)
+               """
+    }
+}
+
+// MARK: - 耳机设备类(继承Bluetrum设备基类)
 public class ABEarbuds: ABDevice {
     
     private static let DEFAULT_AUTHENTICATION_STATE: AuthenticationState = .pass // TODO: No need to Auth for now
     
     weak var logger: LoggerDelegate? = DefaultLogger.shared
-    
-    // MARK: - Properties
     
     private var centralManager: CBCentralManager
     
@@ -51,14 +66,11 @@ public class ABEarbuds: ABDevice {
     public private(set) var caseBatteryLevel: Int?
     public private(set) var caseCharging: Bool?
     
-    // MARK: - Computed properties
-    
     var isOpen: Bool {
         return dataReadCharacteristic?.isNotifying ?? false
     }
     
-    // MARK: - Public API
-    
+    // MARK: - ⚠️下面重写Bluetrum ABDevice设备基类的7个方法(使用信标初始化后外设peripheral的委托是它自己)
     public init(peripheral: CBPeripheral, earbudsBeacon: EarbudsBeacon) {
         self.centralManager = CBCentralManager()
         self.connectionState = earbudsBeacon.connectionState
@@ -68,7 +80,7 @@ public class ABEarbuds: ABDevice {
         // Only version 1 has battery information
         if earbudsBeacon.beaconVersion == 1 {
             let beacon = earbudsBeacon as! DeviceBeaconV1
-            // Update battery information
+            // 更新电池信息
             self.leftBatteryLevel = beacon.leftBatteryLevel
             self.rightBatteryLevel = beacon.rightBatteryLevel
             self.caseBatteryLevel = beacon.caseBatteryLevel
@@ -88,7 +100,7 @@ public class ABEarbuds: ABDevice {
         // Only version 1 has battery information
         if deviceBeacon.beaconVersion == 1 {
             let beacon = deviceBeacon as! DeviceBeaconV1
-            // Update battery information
+            // 更新电池信息
             leftBatteryLevel = beacon.leftBatteryLevel
             rightBatteryLevel = beacon.rightBatteryLevel
             caseBatteryLevel = beacon.caseBatteryLevel
@@ -98,8 +110,16 @@ public class ABEarbuds: ABDevice {
         }
     }
     
+    // MARK: - ⚠️蓝牙管理类并不持有特征而是将特征交给设备类自己管理
+    // 设备端发起具体连接操作进行服务发现
     public override func connect() {
         discoverServices()
+    }
+    
+    private func discoverServices() {
+        if self.centralManager.state == .poweredOn {
+            peripheral.discoverServices([CompanionService.uuid])
+        }
     }
     
     public override func startAuth() {
@@ -116,13 +136,10 @@ public class ABEarbuds: ABDevice {
     }
     
     private func nextSend() {
-        guard let dataWriteCharacteristic = dataWriteCharacteristic else {
-            return
-        }
+        guard let dataWriteCharacteristic = dataWriteCharacteristic else { return }
         
         if let requestData = requestDataQueue.popFirst() {
             let data = requestData.data
-            
             if requestData.writeWithResponse {
                 peripheral.writeValue(data, for: dataWriteCharacteristic, type: .withResponse)
                 logger?.v(.abEarbuds, "writeWithResp -> \(data.hex)")
@@ -144,15 +161,6 @@ public class ABEarbuds: ABDevice {
         let data: Data = "CTKD".data(using: .utf8)!
         peripheral.writeValue(data, for: ctkdCharacteristic, type: .withResponse)
     }
-
-    // MARK: - Implementation
-    
-    /// Starts service discovery, only given Service.
-    private func discoverServices() {
-        if self.centralManager.state == .poweredOn {
-            peripheral.discoverServices([CompanionService.uuid])
-        }
-    }
     
     /// Starts characteristic discovery for Data In and Data Out Characteristics.
     ///
@@ -168,13 +176,10 @@ public class ABEarbuds: ABDevice {
     private func enableNotifications(for characteristic: CBCharacteristic) {
         peripheral.setNotifyValue(true, for: characteristic)
     }
-    
 }
 
-// MARK: - CBPeripheralDelegate
-
+// MARK: - 外围设备管理器委托
 extension ABEarbuds: CBPeripheralDelegate {
-    
     public func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         if let services = peripheral.services {
             for service in services {
@@ -185,12 +190,12 @@ extension ABEarbuds: CBPeripheralDelegate {
                 }
             }
         }
-        // Required service not found.
+        // Required service not found
         logger?.e(.abEarbuds, "Device not supported")
     }
     
     public func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
-        // Look for required characteristics.
+        // Look for required characteristics
         if let characteristics = service.characteristics {
             for characteristic in characteristics {
                 if CompanionService.dataReadUuid == characteristic.uuid {
@@ -206,64 +211,34 @@ extension ABEarbuds: CBPeripheralDelegate {
             }
         }
 
-        // Ensure all required characteristics were found.
-        guard let _ = dataWriteCharacteristic,
-              let dataReadCharacteristic = dataReadCharacteristic, dataReadCharacteristic.properties.contains(.notify) else {
+        // Ensure all required characteristics were found
+        guard let _ = dataWriteCharacteristic, let dataReadCharacteristic = dataReadCharacteristic, dataReadCharacteristic.properties.contains(.notify) else {
                 logger?.e(.abEarbuds, "Device not supported")
                 return
         }
-
         enableNotifications(for: dataReadCharacteristic)
     }
     
     public func peripheral(_ peripheral: CBPeripheral, didUpdateNotificationStateFor characteristic: CBCharacteristic, error: Error?) {
-        guard characteristic == dataReadCharacteristic, characteristic.isNotifying else {
-            return
-        }
+        guard characteristic == dataReadCharacteristic, characteristic.isNotifying else { return }
         logger?.v(.abEarbuds, "Data In notifications enabled")
-
         logger?.i(.abEarbuds, "Device ready")
-
         connectionStateCallback?.onConnected(device: self)
     }
     
     public func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
-        // This method will not be called, if data is sent without response.
+        // This method will not be called, if data is sent without response
         logger?.d(.abEarbuds, "didWriteValueFor: \(String(describing: characteristic.value?.hex))")
         
         nextSend()
     }
     
     public func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
-        guard characteristic == dataReadCharacteristic, let data = characteristic.value else {
-            return
-        }
+        guard characteristic == dataReadCharacteristic, let data = characteristic.value else { return }
         dataDelegate?.onReceiveData(data)
     }
     
-    // This method is available only on iOS 11+.
     public func peripheralIsReady(toSendWriteWithoutResponse peripheral: CBPeripheral) {
         nextSend()
     }
-    
-}
-
-extension ABEarbuds {
-    
-    static func == (lhs: ABEarbuds, rhs: ABEarbuds) -> Bool {
-        return lhs.peripheral == rhs.peripheral
-    }
-    
-}
-
-extension ABEarbuds {
-    
-    public override var description: String {
-        return """
-               ABEarbuds: btAddress=\(btAddress), productId=\(productId), \
-               supportCTKD=\(supportCTKD), isConnected=\(isConnected), needAuth=\(needAuth), \
-               peripheral=\(peripheral)
-               """
-    }
-    
 }

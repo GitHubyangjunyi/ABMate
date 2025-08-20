@@ -12,25 +12,26 @@ import DeviceManager
 import RxRelay
 import UIKit
 
+// MARK: - 设备信息源单例
+@MainActor
 class DeviceRepository: NSObject {
     
     weak var logger: LoggerDelegate? = DefaultLogger.shared
     
     static let shared = DeviceRepository()
     
-    // MARK: - Properties
-    
     private let bluetoothManager = BluetoothManager.shared
     
     private var workingDevice: ABDevice?
     
     private var isOpened: Bool = false
-    private var isScanning: Bool = false
+    private var isScanning: Bool = false                        // 是否处于扫描状态
     
     public let deviceCommManager = DefaultDeviceCommManager()
     private var preparingDevice: ABDevice?
     private var waitingDeviceReady: Bool = false
     
+    // MARK: - 最后发现的设备
     private var _latestDiscoveredDevice: ABDevice? {
         didSet {
             latestDiscoveredDevice.accept(_latestDiscoveredDevice)
@@ -38,6 +39,7 @@ class DeviceRepository: NSObject {
     }
     let latestDiscoveredDevice: BehaviorRelay<ABDevice?> = BehaviorRelay(value: nil)
     
+    // MARK: - 发现的所有设备
     private var _discoveredDevices = [ABDevice]() {
         didSet {
             discoveredDevices.accept(_discoveredDevices)
@@ -88,8 +90,7 @@ class DeviceRepository: NSObject {
     
     let deviceMaxPacketSize: BehaviorRelay<UInt16?> = BehaviorRelay(value: nil)
     
-    // MARK: - Public API
-    
+    // MARK: - 公共接口
     public override init() {
         super.init()
         self.bluetoothManager.delegate = self
@@ -110,6 +111,7 @@ class DeviceRepository: NSObject {
         isScanning = false
     }
     
+    // MARK: - ⚠️设备列表从这里发起连接
     func connect(_ device: ABDevice) {
         workingDevice = device
         
@@ -118,30 +120,25 @@ class DeviceRepository: NSObject {
         preparingDevice = device
 
         var options: [String: Any] = [:]
-        if #available(iOS 13.2, *) {
-            options[CBConnectPeripheralOptionEnableTransportBridgingKey] = true
-        }
+        options[CBConnectPeripheralOptionEnableTransportBridgingKey] = true
         bluetoothManager.connect(device.peripheral, options: options)
         isOpened = true
     }
     
     func disconnect() {
-        guard let device = workingDevice else {
-            return
-        }
+        guard let device = workingDevice else { return }
         _activeDevice?.stop()
         bluetoothManager.disconnect(device.peripheral)
         isOpened = false
     }
     
-    @MainActor func sendRequest(_ request: Request) {
+    func sendRequest(_ request: Request) {
         sendRequest(request, completion: nil)
     }
     
-    @MainActor func sendRequest(_ request: Request, completion: RequestCompletion?) {
-        guard let device = workingDevice, device.peripheral.state == .connected else {
-            return
-        }
+    // MARK: - ⚠️⚠️⚠️⚠️从ViewModel传递过来的命令调用链
+    func sendRequest(_ request: Request, completion: RequestCompletion?) {
+        guard let device = workingDevice, device.peripheral.state == .connected else { return }
         deviceCommManager.sendRequest(request, completion: completion)
     }
     
@@ -154,10 +151,8 @@ class DeviceRepository: NSObject {
     }
     
     // MARK: - Implementation
-    
     private func discoverDevice(_ device: ABDevice) {
-//        logger?.v(.deviceRepository, "Found device: \(device)")
-        
+        // logger?.v(.deviceRepository, "Found device: \(device)")
         _discoveredDevices.append(device)
         _latestDiscoveredDevice = device
     }
@@ -190,22 +185,17 @@ class DeviceRepository: NSObject {
         // 重置设备状态
         resetDeviceStatus()
     }
-    
 }
 
-// MARK: - BluetoothDelegate
-
+// MARK: - 蓝牙管理类委托回调
 extension DeviceRepository: BluetoothDelegate {
-    
     func didUpdateState(_ state: CBManagerState) {
-        
         if state == .poweredOn {
             // TODO: move to another place
-            // Listen bluetooth connection events
-//            if #available(iOS 13.0, *) {
-//                let ABMateServiceUUID = CBUUID(string: "FDB3")
-//                self.bluetoothManager.registerForConnectionEvents(options: [.serviceUUIDs: ABMateServiceUUID]) // TODO: options未定，预留
-//            }
+            if #available(iOS 13.0, *) {
+                // let ABMateServiceUUID = CBUUID(string: "FDB3")
+                // self.bluetoothManager.registerForConnectionEvents(options: [.serviceUUIDs: ABMateServiceUUID]) // TODO: options未定，预留
+            }
             
             if isOpened {
                 connect(workingDevice!)
@@ -224,13 +214,9 @@ extension DeviceRepository: BluetoothDelegate {
     }
     
     func didDiscoverPeripheral(_ peripheral: CBPeripheral, advertisementData: [String : Any], RSSI: NSNumber) {
-        
-        if let manufacturerData = advertisementData.manufacturerData(companyId: GlobalConfig.MANUFACTURER_ID),
-           let deviceBeacon = DeviceBeacon.getDeviceBeacon(data: manufacturerData),
+        if let manufacturerData = advertisementData.manufacturerData(companyId: GlobalConfig.MANUFACTURER_ID), let deviceBeacon = DeviceBeacon.getDeviceBeacon(data: manufacturerData),
            deviceBeacon.brandId == GlobalConfig.BRAND_ID >> 16 {
-            
-//            logger?.v(.deviceRepository, "\(deviceBeacon)")
-            
+            // logger?.v(.deviceRepository, "\(deviceBeacon)")
             // 如果是耳机广播
             if let earbudsBeacon = deviceBeacon as? EarbudsBeacon {
                 // 如果广播里包含的地址和当前连接的音频设备相同（理所当然isConnected==true）
@@ -305,17 +291,16 @@ extension DeviceRepository: BluetoothDelegate {
 
 // MARK: - ConnectionStateCallback
 extension DeviceRepository: ConnectionStateCallback {
-    
-    @MainActor func onConnected(device: ABDevice) {
+    // 连接成功后命令管理器的commDelegate就是设备本身类 由设备自己去发送命令
+    func onConnected(device: ABDevice) {
         deviceCommManager.commDelegate = device
         deviceCommManager.responseErrorHandler = self
-        
         // 获取必要的信息
         // Get necessary infomation
         requireNecessaryInfomation()
     }
     
-    @MainActor func onReceiveAuthResult(device: ABDevice, passed: Bool) {
+    func onReceiveAuthResult(device: ABDevice, passed: Bool) {
         if passed {
             _activeDevice = device
             // Require all device info
@@ -346,12 +331,10 @@ extension DeviceRepository: DeviceResponseErrorHandler {
     func onError(_ error: ResponseError) {
         logger?.d(.deviceRepository, "Device Response error: \(error)")
     }
-    
 }
 
 // MARK: - DeviceCommManager
 extension DeviceRepository {
-    
     var failureCompletion: RequestCompletion {
         return { _, result, timeout in
             // TODO: Handle error and failure
@@ -365,13 +348,13 @@ extension DeviceRepository {
         self.preparingDevice?.startAuth()
     }
     
-    @MainActor func requireNecessaryInfomation() {
+    func requireNecessaryInfomation() {
         // 先获取MTU，以便设置分包大小，然后再获取Capabilities，最后获取其他信息
         // First of all, require MTU, in order to set max packet size, and then require capabilities, finally other info
         requireMaxPacketSize()
     }
     
-    @MainActor func requireMaxPacketSize() {
+    func requireMaxPacketSize() {
         deviceCommManager.registerDeviceInfoCallback(Command.INFO_MAX_PACKET_SIZE, callableType: MtuPayloadHandler.self) {
             [weak self] in
             // No longer deal with Command.INFO_MAX_PACKET_SIZE
@@ -390,7 +373,7 @@ extension DeviceRepository {
         deviceCommManager.sendRequest(DeviceInfoRequest(Command.INFO_MAX_PACKET_SIZE), completion: failureCompletion)
     }
     
-    @MainActor func requireCapabilities() {
+    func requireCapabilities() {
         deviceCommManager.registerDeviceInfoCallback(Command.INFO_DEVICE_CAPABILITIES, callableType: DeviceCapacitiesPayloadHandler.self) {
             [weak self] in
             // No longer deal with Command.INFO_DEVICE_CAPABILITIES
@@ -415,7 +398,7 @@ extension DeviceRepository {
         deviceCommManager.sendRequest(DeviceInfoRequest(Command.INFO_DEVICE_CAPABILITIES), completion: failureCompletion)
     }
     
-    @MainActor func requireMultipointInfo() {
+    func requireMultipointInfo() {
         deviceCommManager.registerDeviceInfoCallback(Command.INFO_MULTIPOINT_INFO, callableType: MultipointPayloadHandler.self) {
             [weak self] in
             // No longer deal with Command.INFO_MULTIPOINT_INFO
@@ -453,7 +436,7 @@ extension DeviceRepository {
         deviceCommManager.sendRequest(DeviceInfoRequest(Command.INFO_MULTIPOINT_INFO), completion: failureCompletion)
     }
     
-    @MainActor func reportLocalBluetoothAddress(_ address: String, successCompletion: @escaping () -> Void) {
+    func reportLocalBluetoothAddress(_ address: String, successCompletion: @escaping () -> Void) {
         let localBluetoothAddress = Utils.addressStringToData(address)!
         let request = MultipointRequest.reportRequest(addressToReport: localBluetoothAddress)
         

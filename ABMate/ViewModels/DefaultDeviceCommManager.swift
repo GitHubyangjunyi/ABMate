@@ -78,7 +78,6 @@ public class DefaultDeviceCommManager: DeviceCommManager {
         // Here choose the first one method
         
         let command = request.getCommand()
-        
         // ResponsePayloadHandler.self
         if let tlvRequest = request as? TlvRequest,
            let tlvResult = result as? TlvResponse {
@@ -327,5 +326,4 @@ public class DefaultDeviceCommManager: DeviceCommManager {
         deviceAntiWindNoise.accept(nil)
         deviceCapacities.accept(nil)
     }
-    
 }

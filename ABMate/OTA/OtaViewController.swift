@@ -7,9 +7,9 @@
 
 import UIKit
 import CoreBluetooth
-import DeviceManager
-import FOTA
 import RxSwift
+import FOTA
+import DeviceManager
 
 let OTA_FILE_CHECKSUM_POSITION: Int = 56
 

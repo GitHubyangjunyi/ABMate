@@ -40,5 +40,4 @@ class PresetEqSetting: EqSetting {
             eqSettingCountry,
         ]
     }
-    
 }

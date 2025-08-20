@@ -10,6 +10,7 @@ import RxRelay
 import CoreBluetooth
 import DeviceManager
 
+// MARK: - 扫描VM
 class ScannerViewModel: BaseViewModel {
     
     static let shared = ScannerViewModel()

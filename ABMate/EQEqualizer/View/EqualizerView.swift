@@ -77,9 +77,7 @@ class EqualizerView: UIView {
     }
     
     private func setupViews(gains: [Int]) {
-        
         let bandCount = gains.count
-        
         for (index, bandNum) in gains.enumerated() {
             // 频率标签
             let bandLabel = UILabel()
@@ -157,7 +155,6 @@ class EqualizerView: UIView {
     }
     
     // MARK: - Slider
-    
     private func indexOfSlider(_ slider: UISlider) -> Int {
         return sliders.firstIndex(of: slider)!
     }
@@ -166,9 +163,7 @@ class EqualizerView: UIView {
         return lroundf(slider.value)
     }
     
-    @objc
-    private func sliderValueChanged(_ slider: UISlider) {
-        
+    @objc private func sliderValueChanged(_ slider: UISlider) {
         let index = indexOfSlider(slider)
         let valueLabel = valueLabels[index]
         let roundValue = sliderRoundedValue(slider)
@@ -176,17 +171,13 @@ class EqualizerView: UIView {
         delegate?.onBandLevelChanged?(bandId: index, progress: roundValue)
     }
     
-    @objc
-    private func sliderTouchDown(_ slider: UISlider) {
-        
+    @objc private func sliderTouchDown(_ slider: UISlider) {
         let index = indexOfSlider(slider)
         touched[index] = true
         delegate?.onStart?(bandId: index)
     }
     
-    @objc
-    private func sliderTouchUp(_ slider: UISlider) {
-        
+    @objc private func sliderTouchUp(_ slider: UISlider) {
         let index = indexOfSlider(slider)
         let valueLabel = valueLabels[index]
         let roundValue = sliderRoundedValue(slider)
@@ -194,22 +185,15 @@ class EqualizerView: UIView {
         slider.setValue(Float(roundValue), animated: true)
         
         touched[index] = false
-        
         delegate?.onStop?(bandId: index)
-        
         checkIfAllStopped()
     }
     
-    @objc
-    private func sliderTouchCancel(_ slider: UISlider) {
-        
+    @objc private func sliderTouchCancel(_ slider: UISlider) {
         let index = indexOfSlider(slider)
         delegate?.onStop?(bandId: index)
-        
         touched[index] = false
-        
         // FIXME: 恢复touch之前的所有值?
-        
         checkIfAllStopped()
     }
     
@@ -219,7 +203,7 @@ class EqualizerView: UIView {
         }
     }
     
-    // MARK: - Public API
+    // MARK: - 公共接口
     public var gains: [Int8] {
         return sliders.map { Int8(sliderRoundedValue($0)) }
     }
@@ -252,5 +236,4 @@ class EqualizerView: UIView {
             }
         }
     }
-    
 }

@@ -11,10 +11,10 @@ import Utils
 
 class DeviceViewController: UIViewController {
     
+    private let disposeBag = DisposeBag()
     weak var logger: LoggerDelegate? = DefaultLogger.shared
     
     private let viewModel = SharedViewModel.shared
-    private let disposeBag = DisposeBag()
     
     private var tableView: UITableView!
     
@@ -23,7 +23,6 @@ class DeviceViewController: UIViewController {
         view.backgroundColor = .white
         
         setupTableView()
-        
         setupDeviceInfo()
         
         viewModel.activeDevice.subscribeOnNext { [unowned self] in
@@ -46,10 +45,7 @@ class DeviceViewController: UIViewController {
         }
     }
     
-    // MARK: - Device Info
-
     private func setupDeviceInfo() {
-        
         viewModel.devicePower.subscribeOnNext { [unowned self] in
             if let devicePower = $0 {
                 print("devicePower: \(String(describing: devicePower))")
@@ -203,21 +199,18 @@ class DeviceViewController: UIViewController {
             }
             self.tableView.reloadData()
         }.disposed(by: disposeBag)
-        
     }
-
 }
 
 extension DeviceViewController: UITableViewDataSource {
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 22
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell")
         if cell == nil {
@@ -225,7 +218,6 @@ extension DeviceViewController: UITableViewDataSource {
         }
         
         cell.textLabel?.font = UIFont.systemFont(ofSize: 13)
-        
         switch indexPath.row {
         case 0: cell.textLabel?.text = "devicePower: \(String(describing: viewModel.devicePower.value))"
         case 1: cell.textLabel?.text = "deviceFirmwareVersion: \(String(describing: viewModel.deviceFirmwareVersion.value))"
@@ -251,8 +243,6 @@ extension DeviceViewController: UITableViewDataSource {
         case 21: cell.textLabel?.text = "deviceLeftIsMainSide: \(String(describing: viewModel.deviceLeftIsMainSide.value))"
         default: cell.textLabel?.text = "No Content"
         }
-
         return cell
     }
-
 }

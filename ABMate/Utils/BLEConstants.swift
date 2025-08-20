@@ -10,7 +10,8 @@ import CoreBluetooth
 
 // MARK: - Companion service identifires
 struct CompanionService {
-    public static let uuid          = CBUUID(string: "FDB3")
+    
+    public static let uuid          = CBUUID(string: "FDB3")    // 服务UUID
     public static let dataWriteUuid = CBUUID(string: "FF17")
     public static let dataReadUuid  = CBUUID(string: "FF18")
     public static let ctkdUuid      = CBUUID(string: "FF20")

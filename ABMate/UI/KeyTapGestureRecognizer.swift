@@ -10,5 +10,4 @@ import UIKit
 class KeyTapGestureRecognizer: UITapGestureRecognizer {
 
     var associatedObject: AnyObject?
-    
 }

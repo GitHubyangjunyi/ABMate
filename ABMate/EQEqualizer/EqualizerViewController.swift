@@ -6,18 +6,18 @@
 //
 
 import UIKit
-import DeviceManager
-import RxSwift
-import SnapKit
-import Utils
 import CoreData
+import SnapKit
+import RxSwift
+import Utils
+import DeviceManager
 
 /// EQ设置存储在App的时候使用
 /// Use this when EQ settings are stored in App
 class EqualizerViewController: UIViewController {
     
     static let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    private var context: NSManagedObjectContext { EqualizerViewController.context }
+    var context: NSManagedObjectContext { EqualizerViewController.context }
     
     weak var logger: LoggerDelegate? = DefaultLogger.shared
     
@@ -25,13 +25,13 @@ class EqualizerViewController: UIViewController {
     private let disposeBag = DisposeBag()
     
     private var eqView: EqualizerView!
-    private var collectionView: UICollectionView!
+    var collectionView: UICollectionView!
     
     private var editButton: UIBarButtonItem!
     
-    private var eqSettingsList: [EqSetting]!
-    private var customEqSettings: [EqSetting] = []
-    private var eqSavedSettings: [EqSavedSetting]?
+    var eqSettingsList: [EqSetting]!
+    var customEqSettings: [EqSetting] = []
+    var eqSavedSettings: [EqSavedSetting]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,8 +89,7 @@ class EqualizerViewController: UIViewController {
         }()
     }
     
-    @objc
-    private func tapEditButton(_ button: UIBarButtonItem) {
+    @objc private func tapEditButton(_ button: UIBarButtonItem) {
         isEditing = !isEditing
         if isEditing {
             button.title = "cancel".localized
@@ -112,40 +111,33 @@ class EqualizerViewController: UIViewController {
     }
     
     private func setupDeviceInfo() {
-        
         viewModel.deviceEqSetting.subscribeOnNext { [unowned self] in
             if let deviceEqSetting = $0 {
                 self.logger?.v(.equalizerVC, "deviceEqSetting: \(deviceEqSetting)")
-                
                 self.eqView.setValues(deviceEqSetting.gains)
-                
                 self.eqSettingsList = self.allEQSettings
                 self.collectionView.reloadData()
             }
         }.disposed(by: disposeBag)
     }
-    
 }
 
 extension EqualizerViewController: EqualizerViewDelegate {
-    
     func onBandLevelChanged(bandId: Int, progress: Int) {
-//        logger?.v(.equalizerVC, "onBandLevelChanged: \(bandId) \(progress)")
+        // logger?.v(.equalizerVC, "onBandLevelChanged: \(bandId) \(progress)")
     }
     
     func onStart(bandId: Int) {
-//        logger?.v(.equalizerVC, "onStart: \(bandId)")
+        // logger?.v(.equalizerVC, "onStart: \(bandId)")
     }
     
     func onStop(bandId: Int) {
-//        logger?.v(.equalizerVC, "onStop: \(bandId)")
+        // logger?.v(.equalizerVC, "onStop: \(bandId)")
     }
     
     func onAllStop() {
         let gainLevels = eqView.gains
-        
         logger?.v(.equalizerVC, "onAllStop: \(gainLevels)")
-        
         let eqRequest = EqRequest.CustomEqRequest(eqMode: 0, gains: gainLevels)
         viewModel.sendEqRequest(eqRequest) { [weak self] result, timeout in
             self?.logger?.v(.equalizerVC, "EQ, result: \(String(describing: result)), timeout: \(timeout)")
@@ -156,11 +148,9 @@ extension EqualizerViewController: EqualizerViewDelegate {
         eqSettingsList = allEQSettings
         collectionView.reloadData()
     }
-    
 }
 
 extension EqualizerViewController: UICollectionViewDataSource {
-    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -171,11 +161,9 @@ extension EqualizerViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EQSettingCell", for: indexPath) as! EQSettingCell
-        
         let eqSetting = eqSettingsList[indexPath.row]
         cell.title = eqSetting.name
         cell.isEditing = eqSetting.isCustom && isEditing
-        
         if eqSetting != PresetEqSetting.eqSettingAdd {
             // 配置删除按键
             if let eqSavedSettings = eqSavedSettings, eqSetting.isCustom {
@@ -186,14 +174,11 @@ extension EqualizerViewController: UICollectionViewDataSource {
             // 显示目前匹配的EQ
             cell.isSelected = eqView.gains == eqSetting.gains
         }
-        
         return cell
     }
-    
 }
 
 extension EqualizerViewController: UICollectionViewDelegateFlowLayout {
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 100, height: 100)
     }
@@ -203,9 +188,7 @@ extension EqualizerViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard isEditing == false else {
-            return
-        }
+        guard isEditing == false else {  return }
         
         // 设置选择的EQ
         let eqSetting = eqSettingsList[indexPath.row]
@@ -251,13 +234,10 @@ extension EqualizerViewController: UICollectionViewDelegateFlowLayout {
         eqSettingsList = allEQSettings
         collectionView.reloadData()
     }
-    
 }
 
 // MARK: - Custom EQ, persistant storage
-
-fileprivate extension UIButton {
-    
+extension UIButton {
     private struct AssociatedKeys {
         static var eqEntity = "eq_entity"
     }
@@ -270,79 +250,10 @@ fileprivate extension UIButton {
             objc_setAssociatedObject(self, &AssociatedKeys.eqEntity, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
-    
-}
-
-extension EqualizerViewController {
-    
-    func loadCustomEqSettings() {
-        let request: NSFetchRequest<EqSavedSetting> = EqSavedSetting.fetchRequest()
-        do {
-            eqSavedSettings = try context.fetch(request)
-            customEqSettings = eqSavedSettings!.convertToEqSettings()
-        }
-        catch {
-            logger?.w(.equalizerVC, "Error loading EqSavedSetting: \(error)")
-        }
-        eqSettingsList = allEQSettings
-        collectionView?.reloadData()
-    }
-    
-    func convertToSaved(_ setting: EqSetting) -> EqSavedSetting {
-        let name = setting.name
-        let gains = setting.gains.map { UInt8(bitPattern: $0) }
-        
-        let entity = NSEntityDescription.entity(forEntityName: "EqSavedSetting", in: context)!
-        let eqSavedSetting = EqSavedSetting(entity: entity, insertInto: context)
-        eqSavedSetting.name = name
-        eqSavedSetting.gains = Data(gains)
-        return eqSavedSetting
-    }
-    
-    func saveCustomEqSetting(_ setting: EqSetting) {
-        let eqSavedSetting = convertToSaved(setting)
-        context.insert(eqSavedSetting)
-        
-        do {
-            try context.save()
-        } catch {
-            logger?.w(.equalizerVC, "Failed to save custom EQ Setting: \(error)")
-        }
-        loadCustomEqSettings()
-    }
-    
-    func deleteCustomEqSetting(_ eqSavedSetting: EqSavedSetting) {
-        
-        context.delete(eqSavedSetting)
-        
-        do {
-            try context.save()
-        } catch {
-            logger?.w(.equalizerVC, "Failed to delete custom EQ Setting: \(error)")
-        }
-        loadCustomEqSettings()
-    }
-    
-    @objc
-    func deleteEQSetting(_ sender: UIButton) {
-        
-        if let eqSavedSetting = sender.associatedEntity {
-            let title = String(format: "equalizer_delete_alert".localized, eqSavedSetting.name!)
-            let message = "equalizer_delete_confirm".localized
-            let okAction = UIAlertAction(title: "ok".localized, style: .default, handler: { action in
-                // Execute delete
-                self.deleteCustomEqSetting(eqSavedSetting)
-            })
-            presentAlert(title: title, message: message, cancelable: true, option: okAction, handler: nil)
-        }
-    }
-    
 }
 
 // MARK: - EQ List
-
-fileprivate extension EqualizerViewController {
-    
+extension EqualizerViewController {
     /// 所有Preset和Custom的EQSetting，和ADD
     var allEQSettings: [EqSetting] {
         var settings = allPresetAndCustomEQSettings
@@ -363,7 +274,6 @@ fileprivate extension EqualizerViewController {
     }
     
     func indexOfEQSetting(_ gainLevels: [Int8]) -> Int? {
-        
         for (index, eqSetting) in allPresetAndCustomEQSettings.enumerated() {
             if eqSetting.gains == gainLevels {
                 return index
@@ -371,5 +281,4 @@ fileprivate extension EqualizerViewController {
         }
         return nil
     }
-    
 }

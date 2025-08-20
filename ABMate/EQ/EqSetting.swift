@@ -19,31 +19,24 @@ class EqSetting {
         self.name = name
         self.gains = gains
     }
-    
 }
 
 extension EqSetting {
-    
     convenience init(from setting: EqSavedSetting) {
         let name = setting.name!
         let gains = setting.gains!.map { Int8(bitPattern: $0) }
         self.init(name: name, gains: gains)
     }
-    
 }
 
 extension Array where Element == EqSavedSetting {
-    
     func convertToEqSettings() -> [EqSetting] {
         return map { EqSetting(from: $0) }
     }
-    
 }
 
 extension EqSetting: Equatable {
-    
     static func == (lhs: EqSetting, rhs: EqSetting) -> Bool {
         return lhs.name == rhs.name && lhs.isCustom == rhs.isCustom && lhs.gains == rhs.gains
     }
-    
 }

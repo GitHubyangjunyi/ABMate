@@ -7,17 +7,16 @@
 
 import UIKit
 
+// MARK: - 根视图控制器
 class MainViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
         setupTabBarItems()
     }
     
     private func setupTabBarItems() {
-        
         let homeTitle = "tab_bar_title_home".localized
         let homeVC = HomeViewController()
         homeVC.title = homeTitle
@@ -32,5 +31,4 @@ class MainViewController: UITabBarController {
         
         viewControllers = [homeNC, functionNC]
     }
-    
 }

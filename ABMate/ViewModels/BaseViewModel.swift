@@ -27,7 +27,7 @@ class BaseViewModel {
         sharedDeviceRepo.disconnect()
     }
     
-    // MARK: - 发送请求
+    // MARK: - 用来检查响应是否成功
     func checkIfResponseAllSuccess(results: [UInt8: Bool]) -> Bool {
         for (_, result) in results {
             // 有一个错误就算失败
@@ -48,12 +48,22 @@ class BaseViewModel {
         return false
     }
     
+    // MARK: - ⚠️⚠️⚠️⚠️ViewModel发送请求入口点
     func sendRequest(_ request: Request) {
         sendRequest(request, completion: nil)
     }
     
-    func sendRequest(_ request: Request, completion: RequestCompletion?) {
-        sharedDeviceRepo.sendRequest(request, completion: completion)
+    // MARK: - ⚠️⚠️⚠️⚠️ViewModel发送请求入口点
+    func sendRequest(_ request: Request, completion: @escaping SimpleRequestCompletion) {
+        sendRequestExpectAllSuccess(request, completion: completion)
+    }
+    
+    func sendRequestExpectAllSuccess(_ request: Request, completion: @escaping SimpleRequestCompletion) {
+        sendRequest(request, completion: completion, resultChecker: checkIfResponseAllSuccess)
+    }
+    
+    func sendRequestExpectAtLeastOneSuccess(_ request: Request, completion: @escaping SimpleRequestCompletion) {
+        sendRequest(request, completion: completion, resultChecker: checkIfResponseAtLeastOneSuccess)
     }
     
     func sendRequest(_ request: Request, completion: @escaping SimpleRequestCompletion, resultChecker: @escaping (_ results: [UInt8: Bool]) -> Bool) {
@@ -72,16 +82,8 @@ class BaseViewModel {
         }
     }
     
-    func sendRequestExpectAllSuccess(_ request: Request, completion: @escaping SimpleRequestCompletion) {
-        sendRequest(request, completion: completion, resultChecker: checkIfResponseAllSuccess)
-    }
-    
-    func sendRequestExpectAtLeastOneSuccess(_ request: Request, completion: @escaping SimpleRequestCompletion) {
-        sendRequest(request, completion: completion, resultChecker: checkIfResponseAtLeastOneSuccess)
-    }
-    
-    func sendRequest(_ request: Request, completion: @escaping SimpleRequestCompletion) {
-        sendRequestExpectAllSuccess(request, completion: completion)
+    func sendRequest(_ request: Request, completion: RequestCompletion?) {
+        sharedDeviceRepo.sendRequest(request, completion: completion)
     }
     
     // MARK: - 当前连接设备
@@ -227,104 +229,90 @@ class BaseViewModel {
     }
     
     // MARK: - Requests
-    // EQ Setting
+    // EQ设置
     func sendEqRequest(_ request: EqRequest, completion: @escaping SimpleRequestCompletion) {
         sendRequest(request, completion: completion)
     }
     
     // Auto Shutdown
-    
     func setAutoShutdownSetting(_ setting: AutoShutdownSetting, completion: @escaping SimpleRequestCompletion) {
         let request = AutoShutdownRequest(setting)
         sendRequest(request, completion: completion)
     }
     
     // Factory Reset
-    
     func doFactoryReset(completion: @escaping SimpleRequestCompletion) {
         let request = FactoryResetRequest()
         sendRequest(request, completion: completion)
     }
     
     // Work Mode
-    
     func setWorkMode(_ mode: WorkMode, completion: @escaping SimpleRequestCompletion) {
         let request = WorkModeRequest(mode)
         sendRequest(request, completion: completion)
     }
     
     // In Ear Detect
-    
     func enableInEarDetect(_ enable: Bool, completion: @escaping SimpleRequestCompletion) {
         let request = InEarDetectRequest(enable)
         sendRequest(request, completion: completion)
     }
     
-    // Language Setting
-    
+    // 语言设置
     func setLanguageSetting(_ setting: LanguageSetting, completion: @escaping SimpleRequestCompletion) {
         let request = LanguageRequest(setting)
         sendRequest(request, completion: completion)
     }
     
-    // Find Device
-    
+    // 查找设备
     func doFindDevice(_ enable: Bool, completion: @escaping SimpleRequestCompletion) {
         let request = FindDeviceRequest(enable)
         sendRequest(request, completion: completion)
     }
     
     // Auto Answer
-    
     func enableAutoAnswer(_ enable: Bool, completion: @escaping SimpleRequestCompletion) {
         let request = AutoAnswerRequest(enable)
         sendRequest(request, completion: completion)
     }
     
-    // ANC Mode
-    
+    // ANC模式
     func setAncMode(_ mode: AncRequest.AncMode, completion: @escaping SimpleRequestCompletion) {
         let request = AncRequest.modeRequest(ancMode: mode)
         sendRequest(request, completion: completion)
     }
     
-    // Bluetooth Name
-    
+    // 蓝牙名称
     func setBluetoothName(_ name: String, completion: @escaping SimpleRequestCompletion) {
         let request = BluetoothNameRequest(name)
         sendRequest(request, completion: completion)
     }
     
-    // LED Mode
-    
+    // LED模式
     func setLedOn(_ ledOn: Bool, completion: @escaping SimpleRequestCompletion) {
         let request = LedSwitchRequest(ledOn)
         sendRequest(request, completion: completion)
     }
     
     // Clear Pair Record
-    
     func doClearPairRecord(completion: @escaping SimpleRequestCompletion) {
         let request = ClearPairRecordRequest()
         sendRequest(request, completion: completion)
     }
     
     // ANC Gain
-    
     func setAncGain(_ gain: UInt8, completion: @escaping SimpleRequestCompletion) {
         let request = AncRequest.ncLevelRequest(ncLevel: gain)
         sendRequest(request, completion: completion)
     }
     
     // Transparency Gain
-    
     func setTransparencyGain(_ gain: UInt8, completion: @escaping SimpleRequestCompletion) {
         let request = AncRequest.transparencyLevelRequest(transparencyLevel: gain)
         sendRequest(request, completion: completion)
     }
     
-    // Music Control
-    
+    // 音乐控制
     func setMusicControl(_ type: MusicControlType, completion: @escaping SimpleRequestCompletion) {
         let request = MusicControlRequest(type)
         sendRequest(request) { _, result, timeout in
@@ -336,7 +324,7 @@ class BaseViewModel {
         }
     }
     
-    // Key Setting
+    // 按键设置
     func setKeySetting(keyType: KeyType, keyFunction: KeyFunction, completion: @escaping SimpleRequestCompletion) {
         let request = KeyRequest(keyType: keyType, keyFunction: keyFunction)
         sendRequest(request) { _, result, timeout in
@@ -347,5 +335,4 @@ class BaseViewModel {
             completion(keyResult, timeout)
         }
     }
-    
 }

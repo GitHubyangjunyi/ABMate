@@ -9,6 +9,22 @@ import Foundation
 import CoreBluetooth
 import Utils
 
+extension CBManagerState: @retroactive CustomDebugStringConvertible {
+    
+    /// 蓝牙连接状态描述
+    public var debugDescription: String {
+        switch self {
+        case .unknown: return ".unknown"
+        case .resetting: return ".resetting"
+        case .unsupported: return ".unsupported"
+        case .unauthorized: return ".unauthorized"
+        case .poweredOff: return ".poweredOff"
+        case .poweredOn: return ".poweredOn"
+        default: return "Unknown"
+        }
+    }
+}
+
 // MARK: - 蓝牙管理类
 public class BluetoothManager: NSObject {
     
@@ -60,9 +76,7 @@ public class BluetoothManager: NSObject {
     }
     
     public func disconnect(_ peripheral: CBPeripheral) {
-        guard let peripheral = self.peripheral else {
-            return
-        }
+        guard let peripheral = self.peripheral else { return }
 
         if peripheral.state == .connected || peripheral.state == .connecting {
             centralManager.cancelPeripheralConnection(peripheral)
@@ -88,7 +102,7 @@ extension BluetoothManager: CBCentralManagerDelegate {
     }
     
     public func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
-        if let error = error {
+        if let error {
             logger?.w(.bluetoothManager, error)
         } else {
             logger?.d(.bluetoothManager, "Device is disconnected")
@@ -104,22 +118,4 @@ extension BluetoothManager: CBCentralManagerDelegate {
     public func centralManager(_ central: CBCentralManager, connectionEventDidOccur event: CBConnectionEvent, for peripheral: CBPeripheral) {
         self.delegate?.connectionEventDidOccur?(event, for: peripheral)
     }
-    
-}
-
-extension CBManagerState: CustomDebugStringConvertible {
-    
-    /// 蓝牙连接状态描述
-    public var debugDescription: String {
-        switch self {
-        case .unknown: return ".unknown"
-        case .resetting: return ".resetting"
-        case .unsupported: return ".unsupported"
-        case .unauthorized: return ".unauthorized"
-        case .poweredOff: return ".poweredOff"
-        case .poweredOn: return ".poweredOn"
-        default: return "Unknown"
-        }
-    }
-    
 }

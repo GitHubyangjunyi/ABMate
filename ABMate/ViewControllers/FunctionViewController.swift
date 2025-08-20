@@ -6,12 +6,13 @@
 //
 
 import UIKit
-import DeviceManager
-import RxSwift
 import SnapKit
-import Utils
+import RxSwift
 import Toaster
+import Utils
+import DeviceManager
 
+// MARK: - 功能视图控制器
 class FunctionViewController: UIViewController {
     
     weak var logger: LoggerDelegate? = DefaultLogger.shared
@@ -86,20 +87,13 @@ class FunctionViewController: UIViewController {
         
         setupFunctionGroups()
         setupObserver()
-        
-        if #available(iOS 13, *) {
-            sendingIndicator = UIActivityIndicatorView(style: .medium)
-        } else {
-            sendingIndicator = UIActivityIndicatorView(style: .white)
-        }
+        sendingIndicator = UIActivityIndicatorView(style: .medium)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: sendingIndicator)
     }
     
     // MARK: - Observer
-    
     private func setupObserver() {
         // MARK: ANC
-        
         viewModel.deviceAncMode.subscribeOnNext { [unowned self] in
             if let ancMode = $0, let mode = AncMode(rawValue: ancMode) {
                 let selectedIndex: Int
@@ -296,11 +290,8 @@ class FunctionViewController: UIViewController {
     }
     
     // MARK: - Request
-    
     // MARK: ANC
-    
-    @objc
-    private func onAncModeChanged(_ segmentedControl: UISegmentedControl) {
+    @objc private func onAncModeChanged(_ segmentedControl: UISegmentedControl) {
         let request: AncRequest? = {
             let index = segmentedControl.selectedSegmentIndex
             if let ancMode = AncRequest.AncMode(rawValue: UInt8(index)) {
@@ -313,16 +304,13 @@ class FunctionViewController: UIViewController {
         }
     }
     
-    @objc
-    private func clickAncSettings() {
+    @objc private func clickAncSettings() {
         let vc = AncSettingsViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     
     // MARK: EQ
-    
-    @objc
-    private func clickEqualizer() {
+    @objc private func clickEqualizer() {
         // 如果RemoteEqSettings为空，使用APP本地EQ设置
         // If RemoteEqSettings is nil, use App local EQ Settings
         if viewModel.deviceRemoteEqSettings.value == nil {
@@ -335,9 +323,7 @@ class FunctionViewController: UIViewController {
     }
     
     // MARK: Key
-    
-    @objc
-    private func clickKeyFunction(_ sender: UITapGestureRecognizer) {
+    @objc  private func clickKeyFunction(_ sender: UITapGestureRecognizer) {
         let gestureRecognizer = sender as! KeyTapGestureRecognizer
         let titleLabel = gestureRecognizer.associatedObject as! UILabel
         
@@ -374,9 +360,7 @@ class FunctionViewController: UIViewController {
     }
     
     // MARK: Rename Device
-    
-    @objc
-    private func clickRenameDevice() {
+    @objc private func clickRenameDevice() {
         // 显示改名弹框
         let title = "device_name".localized
         let message = "device_rename_tip".localized
@@ -404,15 +388,12 @@ class FunctionViewController: UIViewController {
     }
     
     // MARK: Earbuds
-    
-    @objc
-    private func clickMultipoint() {
+    @objc private func clickMultipoint() {
         let vc = MultipointViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @objc
-    private func clickWorkMode() {
+    @objc private func clickWorkMode() {
         let title = "work_mode_select".localized
         let alertController = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
         for (index, title) in workModeStrings.enumerated() {
@@ -425,53 +406,44 @@ class FunctionViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    @objc
-    private func clickLedSwitch(_ `switch`: UISwitch) {
+    @objc private func clickLedSwitch(_ `switch`: UISwitch) {
         let request = LedSwitchRequest(`switch`.isOn)
         self.sendRequestAndWaitSuccess(request, completion: nil)
     }
     
-    @objc
-    private func clickSpatialAudio(_ `switch`: UISwitch) {
+    @objc private func clickSpatialAudio(_ `switch`: UISwitch) {
         let request = SpatialAudioModeRequest(on: `switch`.isOn)
         self.sendRequestAndWaitSuccess(request, completion: nil)
     }
     
-    @objc
-    private func clickBassEngine(_ `switch`: UISwitch) {
+    @objc private func clickBassEngine(_ `switch`: UISwitch) {
         let request = BassEngineRequest.enableRequest(enable: `switch`.isOn)
         self.sendRequestAndWaitSuccess(request, completion: nil)
     }
     
-    @objc
-    private func clickBassEngineSlider(_ slider: UISlider) {
+    @objc private func clickBassEngineSlider(_ slider: UISlider) {
         let value = Int8(slider.value)
         let request = BassEngineRequest.valueRequest(value: value)
         self.sendRequestAndWaitSuccess(request, completion: nil)
     }
     
-    @objc
-    private func clickAntiWindNoise(_ `switch`: UISwitch) {
+    @objc private func clickAntiWindNoise(_ `switch`: UISwitch) {
         let request = AntiWindNoiseRequest(`switch`.isOn)
         self.sendRequestAndWaitSuccess(request, completion: nil)
     }
     
-    @objc
-    private func clickFindDevice(_ `switch`: UISwitch) {
+    @objc private func clickFindDevice(_ `switch`: UISwitch) {
         let request = FindDeviceRequest(`switch`.isOn)
         self.sendRequestAndWaitSuccess(request, completion: nil)
     }
     
     // MARK: Device
-    
-    @objc
-    private func clickUpdateFirmware() {
+    @objc private func clickUpdateFirmware() {
         let vc = OtaViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @objc
-    private func clickRestoreSettings() {
+    @objc private func clickRestoreSettings() {
         let restoreAction = UIAlertAction(title: "ok".localized, style: .default) { action in
             let request = FactoryResetRequest()
             self.sendRequestAndWaitSuccess(request, completion: nil)
@@ -483,25 +455,17 @@ class FunctionViewController: UIViewController {
                      handler: nil)
     }
     
-    @objc
-    private func clickClearPairRecord() {
+    @objc private func clickClearPairRecord() {
         let clearRecordAction = UIAlertAction(title: "ok".localized, style: .default) { action in
             let request = ClearPairRecordRequest()
             self.sendRequestAndWaitSuccess(request, completion: nil)
         }
-        presentAlert(title: nil,
-                     message: "clear_pair_record_alert".localized,
-                     cancelable: true,
-                     option: clearRecordAction,
-                     handler: nil)
+        presentAlert(title: nil, message: "clear_pair_record_alert".localized, cancelable: true, option: clearRecordAction, handler: nil)
     }
-    
 }
 
 // MARK: - Layout Views
-
 extension Array<UIView> {
-    
     /// 生成功能组
     var functionGroup: UIView {
         let stackView = UIStackView(arrangedSubviews: self)
@@ -976,7 +940,6 @@ extension FunctionViewController {
 }
 
 // MARK: - Request
-
 fileprivate extension FunctionViewController {
     
     private func startWaitingResponse() {
@@ -1018,5 +981,4 @@ fileprivate extension FunctionViewController {
             completion?(result, timeout)
         }
     }
-    
 }

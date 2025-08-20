@@ -6,10 +6,10 @@
 //
 
 import UIKit
-import DeviceManager
 import RxSwift
 import RxRelay
 import Toaster
+import DeviceManager
 
 class MultipointViewController: UIViewController {
     
@@ -76,7 +76,6 @@ class MultipointViewController: UIViewController {
         ])
         
         // 处理ContainView
-        
         descriptionLabel = {
             let label = UILabel()
             label.textColor = .gray
@@ -141,8 +140,7 @@ class MultipointViewController: UIViewController {
         }.disposed(by: disposeBag)
     }
     
-    @objc
-    private func clickSwitch(_ `switch`: UISwitch) {
+    @objc private func clickSwitch(_ `switch`: UISwitch) {
         let isOn = `switch`.isOn
         let multipoint = viewModel.deviceMultipointInfo.value
         
@@ -153,12 +151,11 @@ class MultipointViewController: UIViewController {
             let endpoints = multipoint.endpoints
             
             // 过滤掉本机地址
-            
             if let localBluetoothAddress = UserSettings.localBluetoothAddress {
                 let filteredEndpoints = endpoints.filter { endpoint in
                     endpoint.address.compare(localBluetoothAddress, options: .caseInsensitive) != .orderedSame
                 }
-                // 取最后一个断开，理论上至少会有一个
+                // 取最后一个断开理论上至少会有一个
                 let endpoint = filteredEndpoints.last!
                 request = MultipointRequest.disableRequest(addressToDisconnect: endpoint.addressBytes)
             } else {
@@ -167,7 +164,7 @@ class MultipointViewController: UIViewController {
                 let filteredEndpoints = endpoints.filter { endpoint in
                     endpoint.bluetoothName.compare(localName, options: .caseInsensitive) != .orderedSame
                 }
-                // 过滤后如果有至少一个设备，取最后一个断开
+                // 过滤后如果有至少一个设备取最后一个断开
                 if filteredEndpoints.count > 0 {
                     let endpoint = filteredEndpoints.last!
                     request = MultipointRequest.disableRequest(addressToDisconnect: endpoint.addressBytes)
@@ -196,7 +193,6 @@ class MultipointViewController: UIViewController {
 }
 
 extension MultipointViewController: UITableViewDataSource, UITableViewDelegate {
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -210,13 +206,11 @@ extension MultipointViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // 数据量小，直接实例化使用，不然需要使用detailTextLabel就得继承UITableViewCell创建新类
+        // 数据量小直接实例化使用不然需要使用detailTextLabel就得继承UITableViewCell创建新类
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "UITableViewCell")
         
         let endpoint = multipoint!.endpoints[indexPath.row]
-        
         cell.textLabel?.text = endpoint.bluetoothName
-        
         cell.detailTextLabel?.text = {
             if let localBluetoothAddress, endpoint.address.compare(localBluetoothAddress, options: .caseInsensitive) == .orderedSame {
                 return "this_phone".localized
@@ -226,17 +220,13 @@ extension MultipointViewController: UITableViewDataSource, UITableViewDelegate {
                 return endpoint.isConnected ? "connected".localized : "disconnected".localized
             }
         }()
-        
         cell.accessoryType = .detailButton
-        
         return cell
     }
     
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         let endpoint = multipoint!.endpoints[indexPath.row]
-        
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
-        
         let connectAction = UIAlertAction(title: "connect".localized, style: .default) { _ in
             self.viewModel.sendRequest(MultipointRequest.connectRequest(addressToConnect: endpoint.addressBytes))
         }
@@ -255,7 +245,6 @@ extension MultipointViewController: UITableViewDataSource, UITableViewDelegate {
         }
         alertController.addAction(unpairAction)
         alertController.addAction(cancelAction)
-        
         present(alertController, animated: true)
     }
 }

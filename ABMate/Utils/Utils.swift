@@ -20,7 +20,6 @@ class Utils {
         if let documentUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
             do {
                 let files = try FileManager.default.contentsOfDirectory(at: documentUrl, includingPropertiesForKeys: nil)
-                // Filter
                 let fotUrls = files.filter { $0.pathExtension == OTA_FILE_EXTENSION }
                 return fotUrls
             } catch {

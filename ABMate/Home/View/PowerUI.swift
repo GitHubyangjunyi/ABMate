@@ -15,6 +15,7 @@ extension PowerUI {
     private var roundCornerRadius: CGFloat { 8 }
 }
 
+// MARK: - 电量展示视图
 class PowerUI: UIView {
     
     private var leftSideImageView: UIImageView!
@@ -25,6 +26,55 @@ class PowerUI: UIView {
     
     private var caseImageView: UIImageView!
     private var caseLabel: UILabel!
+    
+    // MARK: - 公共接口
+    public var leftSideImage: UIImage? = nil {
+        didSet {
+            leftSideImageView.image = leftSideImage
+        }
+    }
+    
+    public var rightSideImage: UIImage? = nil {
+        didSet {
+            rightSideImageView.image = rightSideImage
+        }
+    }
+    
+    public var caseImage: UIImage? = nil {
+        didSet {
+            caseImageView.image = caseImage
+        }
+    }
+    
+    public var leftBatteryLevel: Int? = nil {
+        didSet {
+            if let leftBatteryLevel = leftBatteryLevel {
+                leftSideLabel.text = "\(leftBatteryLevel)%"
+            } else {
+                leftSideLabel.text = "?"
+            }
+        }
+    }
+    
+    public var rightBatteryLevel: Int? = nil {
+        didSet {
+            if let rightBatteryLevel = rightBatteryLevel {
+                rightSideLabel.text = "\(rightBatteryLevel)%"
+            } else {
+                rightSideLabel.text = "?"
+            }
+        }
+    }
+    
+    public var caseBatteryLevel: Int? = nil {
+        didSet {
+            if let caseBatteryLevel = caseBatteryLevel {
+                caseLabel.text = "\(caseBatteryLevel)%"
+            } else {
+                caseLabel.text = "?"
+            }
+        }
+    }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -41,7 +91,6 @@ class PowerUI: UIView {
         roundCorners(radius: roundCornerRadius)
         
         // Everything is based on caseImageView
-        
         let imageContainerView = UIView()
         addSubview(imageContainerView)
         
@@ -102,7 +151,6 @@ class PowerUI: UIView {
         }
         
         // MARK: Image Container View
-        
         imageContainerView.snp.makeConstraints { make in
             make.height.equalTo(caseImageView).offset(MARGIN * 2)
             make.top.equalToSuperview().offset(MARGIN)
@@ -112,55 +160,6 @@ class PowerUI: UIView {
         
         snp.makeConstraints { make in
             make.bottom.equalTo(caseLabel).offset(MARGIN)
-        }
-    }
-    
-    // MARK: - Public API
-    public var leftSideImage: UIImage? = nil {
-        didSet {
-            leftSideImageView.image = leftSideImage
-        }
-    }
-    
-    public var rightSideImage: UIImage? = nil {
-        didSet {
-            rightSideImageView.image = rightSideImage
-        }
-    }
-    
-    public var caseImage: UIImage? = nil {
-        didSet {
-            caseImageView.image = caseImage
-        }
-    }
-    
-    public var leftBatteryLevel: Int? = nil {
-        didSet {
-            if let leftBatteryLevel = leftBatteryLevel {
-                leftSideLabel.text = "\(leftBatteryLevel)%"
-            } else {
-                leftSideLabel.text = "?"
-            }
-        }
-    }
-    
-    public var rightBatteryLevel: Int? = nil {
-        didSet {
-            if let rightBatteryLevel = rightBatteryLevel {
-                rightSideLabel.text = "\(rightBatteryLevel)%"
-            } else {
-                rightSideLabel.text = "?"
-            }
-        }
-    }
-    
-    public var caseBatteryLevel: Int? = nil {
-        didSet {
-            if let caseBatteryLevel = caseBatteryLevel {
-                caseLabel.text = "\(caseBatteryLevel)%"
-            } else {
-                caseLabel.text = "?"
-            }
         }
     }
 }

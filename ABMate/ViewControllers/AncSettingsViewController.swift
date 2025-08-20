@@ -9,8 +9,8 @@ import UIKit
 import SnapKit
 import RxSwift
 import Utils
-import DeviceManager
 import Toaster
+import DeviceManager
 
 class AncSettingsViewController: UIViewController {
     
@@ -195,7 +195,6 @@ class AncSettingsViewController: UIViewController {
     
     @objc
     private func ancGainSliderTouchUpInside(_ slider: UISlider) {
-        
         let roundValue = sliderRoundedValue(slider)
         slider.setValue(Float(roundValue), animated: true)
         
@@ -203,9 +202,7 @@ class AncSettingsViewController: UIViewController {
         sendRequestAndWaitSuccess(request, completion: nil)
     }
     
-    @objc
-    private func transparencyGainSliderTouchUpInside(_ slider: UISlider) {
-        
+    @objc private func transparencyGainSliderTouchUpInside(_ slider: UISlider) {
         let roundValue = sliderRoundedValue(slider)
         slider.setValue(Float(roundValue), animated: true)
         
@@ -216,9 +213,7 @@ class AncSettingsViewController: UIViewController {
 }
 
 // MARK: - Request
-
 fileprivate extension AncSettingsViewController {
-    
     private func startWaitingResponse() {
         sendingIndicator.startAnimating()
     }
@@ -228,7 +223,6 @@ fileprivate extension AncSettingsViewController {
     }
     
     private func sendRequestAndWaitSuccess(_ request: Request, completion: SimpleRequestCompletion?) {
-        
         // Check if device is connected
         guard viewModel.activeDevice.value != nil else {
             return
@@ -238,7 +232,6 @@ fileprivate extension AncSettingsViewController {
         startWaitingResponse()
         
         viewModel.sendRequest(request) { [weak self] result, timeout in
-            
             // todo: 解除发送等待
             self?.stopWaitingResponse()
             
